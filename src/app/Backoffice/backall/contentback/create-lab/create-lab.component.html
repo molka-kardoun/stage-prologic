@@ -1,1 +1,50 @@
-<p>create-lab works!</p>
+<div class="container">
+    <h2>Create New Lab</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" id="department" class="form-control" [(ngModel)]="lab.department" name="department" required>
+      </div>
+      <div class="form-group">
+        <label for="code">Code</label>
+        <input type="text" id="code" class="form-control" [(ngModel)]="lab.code" name="code" required>
+      </div>
+      <div class="form-group">
+        <label for="backup">Backup</label>
+        <input type="checkbox" id="backup" [(ngModel)]="lab.backup" name="backup">
+      </div>
+      <div class="form-group">
+        <label for="ram">RAM (GB)</label>
+        <input type="number" id="ram" class="form-control" [(ngModel)]="lab.ram" name="ram" required>
+      </div>
+      <div class="form-group">
+        <label for="disk">Disk (GB)</label>
+        <input type="number" id="disk" class="form-control" [(ngModel)]="lab.disk" name="disk" required>
+      </div>
+      <div class="form-group">
+        <label for="processor">Processor</label>
+        <input type="number" id="processor" class="form-control" [(ngModel)]="lab.processor" name="processor" required>
+      </div>
+      <div class="form-group">
+        <label for="start">Start Date</label>
+        <input type="date" id="start" class="form-control" [(ngModel)]="lab.start" name="start" required>
+      </div>
+      <div class="form-group">
+        <label for="end">End Date</label>
+        <input type="date" id="end" class="form-control" [(ngModel)]="lab.end" name="end" required>
+      </div>
+      <div class="form-group">
+        <label for="goals">Goals</label>
+        <angular-editor [(ngModel)]="lab.goals" name="goals" [placeholder]="'Enter text here...'"></angular-editor>
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" id="status" class="form-control" [(ngModel)]="lab.status" name="status" required>
+      </div>
+      <div class="form-group">
+        <label for="isAccepted">Accepted</label>
+        <input type="checkbox" id="isAccepted" [(ngModel)]="lab.isAccepted" name="isAccepted">
+      </div>
+      <button type="submit" class="btn btn-primary">Create Lab</button>
+    </form>
+  </div>

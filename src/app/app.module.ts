@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './Backoffice/backall/contentback/profile/profile.component';
 import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/create-lab.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
