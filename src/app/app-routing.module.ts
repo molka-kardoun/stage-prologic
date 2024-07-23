@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FrontallComponent } from './Frontoffice/frontall/frontall.component';
+
 import { BackallComponent } from './Backoffice/backall/backall.component';
-import { CardComponent } from './Frontoffice/frontall/contentfront/card/card.component';
+
 import { CardbComponent } from './Backoffice/backall/contentback/cardb/cardb.component';
-
+import { LoginComponent } from './Backoffice/backall/contentback/login/login.component';
+import { SignupComponent } from './Backoffice/backall/contentback/signup/signup.component';
+import { ProfileComponent } from './Backoffice/backall/contentback/profile/profile.component';
 const routes: Routes = [
-  {path: "", component: FrontallComponent , children: [
-    {path: 'card', component: CardComponent}
-    ]},
+  {path: 'signup', component: SignupComponent},
+  {path: '', component: LoginComponent},
 
-    {path: "admin", component: BackallComponent , children: [
-      {path: 'card1', component: CardbComponent}
+    {path: "home", component: BackallComponent , children: [
+      {path: 'card', component: CardbComponent},
+      {path: 'profile/:id', component: ProfileComponent}
+
       ]}
 
 

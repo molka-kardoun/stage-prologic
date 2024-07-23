@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2 class="text-center">Create user account</h2>
+  <div class="col-6 mx-auto">
+    <input [(ngModel)]="user.fullName" type="text" class="form-control m-1" placeholder="Full Name" required>
+    <input [(ngModel)]="user.phone" type="text" class="form-control m-1" placeholder="Phone" required>
+    <input [(ngModel)]="user.email" type="email" class="form-control m-1" placeholder="Email" required>
+    <input [(ngModel)]="user.password" type="password" class="form-control m-1" placeholder="Password" required>
+    <input type="file" (change)="select($event)" class="form-control m-1" placeholder="Image">
+    <input [(ngModel)]="user.nationality" type="text" class="form-control m-1" placeholder="Nationality" required>
+    <input [(ngModel)]="user.dateOfBirth" type="date" class="form-control m-1" placeholder="Date of Birth" required>
+    <input [(ngModel)]="user.address" type="text" class="form-control m-1" placeholder="Address" required>
+    <input [(ngModel)]="user.department" type="text" class="form-control m-1" placeholder="Department" required>
+    <input [(ngModel)]="user.gender" type="text" class="form-control m-1" placeholder="Gender" required>
+    <button (click)="register()" class="btn btn-dark form-control m-1">Register</button>
+  </div>
+</div>

@@ -3,38 +3,45 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FrontallComponent } from './Frontoffice/frontall/frontall.component';
-import { HeaderfrontComponent } from './Frontoffice/frontall/headerfront/headerfront.component';
-import { ContentfrontComponent } from './Frontoffice/frontall/contentfront/contentfront.component';
-import { FooterfrontComponent } from './Frontoffice/frontall/footerfront/footerfront.component';
+
 import { BackallComponent } from './Backoffice/backall/backall.component';
 import { NavbackComponent } from './Backoffice/backall/navback/navback.component';
 import { ContentbackComponent } from './Backoffice/backall/contentback/contentback.component';
 import { FooterbackComponent } from './Backoffice/backall/footerback/footerback.component';
 import { SidebarbackComponent } from './Backoffice/backall/sidebarback/sidebarback.component';
-import { CardComponent } from './Frontoffice/frontall/contentfront/card/card.component';
-import { CardbComponent } from './Backoffice/backall/contentback/cardb/cardb.component';
 
+import { CardbComponent } from './Backoffice/backall/contentback/cardb/cardb.component';
+import { LoginComponent } from './Backoffice/backall/contentback/login/login.component';
+import { SignupComponent } from './Backoffice/backall/contentback/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from './Backoffice/backall/contentback/profile/profile.component';
+import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/create-lab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrontallComponent,
-    HeaderfrontComponent,
-    ContentfrontComponent,
-    FooterfrontComponent,
+
+
     BackallComponent,
     NavbackComponent,
     ContentbackComponent,
     FooterbackComponent,
     SidebarbackComponent,
-    CardComponent,
-    CardbComponent
+
+    CardbComponent,
+    LoginComponent,
+    SignupComponent,
+    ProfileComponent,
+    CreateLabComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
