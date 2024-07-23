@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { InternStatus } from 'src/app/Core/models/InternStatus';
 import { Roles } from 'src/app/Core/models/Roles';
 import { User } from 'src/app/Core/models/User';
@@ -10,35 +9,49 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent
-{
+export class SignupComponent {
+  step: number = 1;
+
   user: User = {
     _id: '',
     fullName: '',
     phone: '',
     email: '',
     password: '',
-    role: Roles.ASSISTANT, // Assuming default role
+    role: Roles.ASSISTANT,
     image: '',
     nationality: '',
     dateOfBirth: '',
     address: '',
     department: '',
     gender: '',
-    isEnabled: true, // Assuming default value
+    isEnabled: true,
     cv: null,
     creationDate: new Date(),
-    status: InternStatus.DECLINED, // Assuming default status
+    status: InternStatus.DECLINED,
     forgetPassword: null,
     lab: null,
     internshipOffer: null
   };
+
   selectedFile: File | null = null;
 
   constructor(private authService: AuthService) {}
 
   select(event: any): void {
     this.selectedFile = event.target.files[0];
+  }
+
+  nextStep(): void {
+    if (this.step < 3) {
+      this.step++;
+    }
+  }
+
+  previousStep(): void {
+    if (this.step > 1) {
+      this.step--;
+    }
   }
 
   register(): void {
