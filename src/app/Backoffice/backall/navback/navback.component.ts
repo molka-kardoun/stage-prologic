@@ -9,4 +9,7 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
 export class NavbackComponent implements OnInit {
 constructor(public auth:AuthService ){}
 ngOnInit(): void {}
+logout(){
+  this.auth.logout();
+}
 }

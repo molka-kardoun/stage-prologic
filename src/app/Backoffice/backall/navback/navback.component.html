@@ -5,24 +5,36 @@
       <div class="logo_section">
         <a href="index.html"><img class="img-responsive" src="assets/images/logo/logo.png" alt="#" /></a>
       </div>
+
       <div class="right_topbar">
-        <div class="icon_info">
-          <ul>
-            <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
-            <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-            <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+        <div class="icon_info d-flex align-items-center">
+
+          <ul class="d-flex align-items-center me-4">
+            <li class="me-3"><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+            <li class="me-3"><a href="#"><i class="fa fa-question-circle"></i></a></li>
+            <li class="me-3"><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+            <div class="btn-group me-4">
+              <button class="btn btn-primary me-2" *ngIf="!auth.loggedIn()">
+                <a class="dropdown-item text-white" routerLink="">Login</a>
+              </button>
+              <button class="btn btn-secondary" *ngIf="!auth.loggedIn()">
+                <a class="dropdown-item text-white" routerLink="/signup">Signup</a>
+              </button>
+            </div>
           </ul>
-          <ul class="user_profile_dd" *ngIf="auth.loggedIn()==true" >
+          <ul class="user_profile_dd" *ngIf="auth.loggedIn()">
             <li>
               <a class="dropdown-toggle" data-toggle="dropdown">
                 <img class="img-responsive rounded-circle" src="assets/images/layout_img/user_img.jpg" alt="#" />
                 <span class="name_user">John David</span>
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" [routerLink]="['/home/profile',auth.getUserdatafromtoken()._id]">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
-                <a class="dropdown-item" href="help.html">Help</a>
-                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                <li *ngIf="auth.loggedIn()">
+                  <a class="dropdown-item" [routerLink]="['/home/profile', auth.getUserdatafromtoken()._id]">My Profile</a>
+                </li>
+                <li *ngIf="auth.loggedIn()">
+                  <a class="dropdown-item" (click)="logout()"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                </li>
               </div>
             </li>
           </ul>

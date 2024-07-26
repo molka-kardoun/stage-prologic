@@ -29,7 +29,7 @@ export class SignupComponent {
     cv: null,
     creationDate: new Date(),
     status: InternStatus.DECLINED,
-    forgetPassword: null,
+    
     lab: null,
     internshipOffer: null
   };

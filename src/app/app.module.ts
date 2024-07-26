@@ -18,6 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './Backoffice/backall/contentback/profile/profile.component';
 import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/create-lab.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { RequestResetPasswordComponent } from './Backoffice/backall/contentback/request-reset-password/request-reset-password.component';
+import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    CreateLabComponent
+    CreateLabComponent,
+    RequestResetPasswordComponent,
+    ResetPasswordComponent
 
   ],
   imports: [
