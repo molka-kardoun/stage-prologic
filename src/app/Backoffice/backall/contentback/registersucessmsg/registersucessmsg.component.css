@@ -1,0 +1,112 @@
+/* Supprime les marges par défaut et fixe le box-sizing pour tous les éléments */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1a2e;
+  height: 100vh; /* Assure que le body prend toute la hauteur de la vue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Enlève la barre de défilement */
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#card {
+  width: 90%;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Partie supérieure */
+#upper-side {
+  padding: 2em;
+  background-color: #c26706;
+  color: #fff;
+  text-align: center;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+
+}
+
+
+#checkmark {
+  font-weight: lighter;
+  fill: #fff;
+  margin: -3.5em auto auto 20px;
+}
+
+#status {
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1em;
+  margin: 0;
+}
+
+/* Partie inférieure */
+#lower-side {
+  padding: 2em;
+  background: #fff;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  text-align: center;
+}
+
+#message {
+  color: #757575;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+}
+
+.beautiful-button {
+  background: linear-gradient(to bottom, #1b1c3f, #4a4e91);
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: button-shimmer 2s infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.beautiful-button:hover {
+  background: linear-gradient(to bottom, #2c2f63, #5b67b7);
+  animation: button-particles 1s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+.beautiful-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes button-shimmer {
+  0% {
+    background-position: left top;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
+@keyframes button-particles {
+  0% {
+    background-position: left top;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}

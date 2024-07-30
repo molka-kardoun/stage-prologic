@@ -11,15 +11,20 @@ import { SignupComponent } from './Backoffice/backall/contentback/signup/signup.
 import { AuthGuard } from './Core/Guards/auth.guard';
 import { RequestResetPasswordComponent } from './Backoffice/backall/contentback/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-password/reset-password.component';
+import { RoleGuard } from './Core/Guards/role.guard';
+import { Roles } from './Core/models/Roles';
+import { RegistersucessmsgComponent } from './Backoffice/backall/contentback/registersucessmsg/registersucessmsg.component';
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
   {path: 'forgotpwd', component: RequestResetPasswordComponent},
   {path: 'newpwd', component: ResetPasswordComponent},
+  {path: 'success', component: RegistersucessmsgComponent},
+
 
     {path: "home", component: BackallComponent , children: [
       {path: 'card', component: CardbComponent},
-      {path: 'addlab',canActivate:[AuthGuard] ,component: CreateLabComponent},
+      {path: 'addlab',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ADMIN] },component: CreateLabComponent},
       {path: 'profile/:id', component: ProfileComponent}
 
       ]}

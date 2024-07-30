@@ -1,55 +1,58 @@
 <body>
   <section class="container">
-      <div class="login-container">
-          <div class="circle circle-one"></div>
-          <div class="circle circle-two"></div>
-          <div class="form-content">
-              <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
-              <div class="form-container">
-                  <div class="progress-container">
-                      <div class="progress" [ngStyle]="{ 'width': (step - 1) * 50 + '%' }"></div>
-                      <div class="step" [ngClass]="{ 'active': step >= 1 }">1</div>
-                      <div class="step" [ngClass]="{ 'active': step >= 2 }">2</div>
-                      <div class="step" [ngClass]="{ 'active': step >= 3 }">3</div>
-                  </div>
-                  <h1 class="opacity">SIGN UP</h1>
-                  <form (ngSubmit)="register()">
-                      <!-- Step 1 -->
-                      <div *ngIf="step === 1">
-                          <input [(ngModel)]="user.fullName" name="fullName" type="text" placeholder="Full Name" required>
-                          <input [(ngModel)]="user.phone" name="phone" type="text" placeholder="Phone" required>
-                          <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
-                          <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required>
-                          <div class="button-container">
-                              <button type="button" class="btn back" (click)="previousStep()" [disabled]="step === 1">Back</button>
-                              <button type="button" class="btn next" (click)="nextStep()">Next</button>
-                          </div>
-                      </div>
-
-                      <!-- Step 2 -->
-                      <div *ngIf="step === 2">
-                          <input type="file" (change)="select($event)" name="image" placeholder="Image">
-                          <input [(ngModel)]="user.nationality" name="nationality" type="text" placeholder="Nationality" required>
-                          <input [(ngModel)]="user.dateOfBirth" name="dateOfBirth" type="date" placeholder="Date of Birth" required>
-                          <div class="button-container">
-                              <button type="button" class="btn back" (click)="previousStep()">Back</button>
-                              <button type="button" class="btn next" (click)="nextStep()">Next</button>
-                          </div>
-                      </div>
-
-                      <!-- Step 3 -->
-                      <div *ngIf="step === 3">
-                          <input [(ngModel)]="user.address" name="address" type="text" placeholder="Address" required>
-                          <input [(ngModel)]="user.department" name="department" type="text" placeholder="Department" required>
-                          <input [(ngModel)]="user.gender" name="gender" type="text" placeholder="Gender" required>
-                          <div class="button-container">
-                              <button type="button" class="btn back" (click)="previousStep()">Back</button>
-                              <button type="submit" class="btn next">Register</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
+    <div class="login-container">
+      <div class="circle circle-one"></div>
+      <div class="circle circle-two"></div>
+      <div class="form-content">
+        <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+        <div class="form-container">
+          <div class="progress-container">
+            <div class="progress" [ngStyle]="{ 'width': (step - 1) * 50 + '%' }"></div>
+            <div class="step" [ngClass]="{ 'active': step >= 1 }">1</div>
+            <div class="step" [ngClass]="{ 'active': step >= 2 }">2</div>
+            <div class="step" [ngClass]="{ 'active': step >= 3 }">3</div>
           </div>
+          <h1 class="opacity">SIGN UP</h1>
+          <form (ngSubmit)="register()">
+            <!-- Step 1 -->
+            <div *ngIf="step === 1">
+              <input [(ngModel)]="user.fullName" name="fullName" type="text" placeholder="Full Name" required>
+              <input [(ngModel)]="user.phone" name="phone" type="text" placeholder="Phone" required>
+              <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
+              <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required>
+              <div class="button-container">
+                <button type="button" class="btn back" (click)="previousStep()" [disabled]="step === 1">Back</button>
+                <button type="button" class="btn next" (click)="nextStep()">Next</button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div *ngIf="step === 2">
+              <input type="file" (change)="select($event)" name="image" placeholder="Image">
+              <input [(ngModel)]="user.nationality" name="nationality" type="text" placeholder="Nationality" required>
+              <input [(ngModel)]="user.dateOfBirth" name="dateOfBirth" type="date" placeholder="Date of Birth" required>
+              <div class="button-container">
+                <button type="button" class="btn back" (click)="previousStep()">Back</button>
+                <button type="button" class="btn next" (click)="nextStep()">Next</button>
+              </div>
+            </div>
+<!-- Step 3 -->
+<div *ngIf="step === 3">
+  <input [(ngModel)]="user.address" name="address" type="text" placeholder="Address" required>
+  <input [(ngModel)]="user.department" name="department" type="text" placeholder="Department" required>
+  <input [(ngModel)]="user.gender" name="gender" type="text" placeholder="Gender" required>
+  <select [(ngModel)]="user.role" name="role" class="custom-select" required>
+    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+  </select>
+  <div class="button-container">
+    <button type="button" class="btn back" (click)="previousStep()">Back</button>
+    <button type="submit" class="btn next">Register</button>
+  </div>
+</div>
+
+          </form>
+        </div>
       </div>
+    </div>
   </section>
 </body>

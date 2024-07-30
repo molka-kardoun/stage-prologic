@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  private role: string = ''; // Store the role here
 
   constructor(private http:HttpClient,private router:Router) { }
   private url='http://127.0.0.1:3000/user'
@@ -40,4 +41,26 @@ getUserdatafromtoken(){
 getuserbyid(id:any){
   return this.http.get(`${this.url}/getbyid/${id}`);
 }
+
+
+
+getRole(): string {
+  if (!this.role) {
+    // Fetch role from token or server if not already set
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        this.role = payload.role;
+      } catch (e) {
+        console.error('Error parsing token payload:', e);
+        this.role = ''; // Reset role if there's an error
+      }
+    }
+  }
+  return this.role;
+}
+
+
+
 }

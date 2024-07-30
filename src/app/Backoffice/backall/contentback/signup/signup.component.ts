@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { InternStatus } from 'src/app/Core/models/InternStatus';
 import { Roles } from 'src/app/Core/models/Roles';
 import { User } from 'src/app/Core/models/User';
@@ -29,14 +30,15 @@ export class SignupComponent {
     cv: null,
     creationDate: new Date(),
     status: InternStatus.DECLINED,
-    
     lab: null,
     internshipOffer: null
   };
 
   selectedFile: File | null = null;
 
-  constructor(private authService: AuthService) {}
+  roles = Object.values(Roles); // Convert enum to array for the combobox
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   select(event: any): void {
     this.selectedFile = event.target.files[0];
@@ -65,6 +67,7 @@ export class SignupComponent {
     formData.append('address', this.user.address);
     formData.append('department', this.user.department);
     formData.append('gender', this.user.gender);
+    formData.append('role', this.user.role);
     if (this.selectedFile) {
       formData.append('image', this.selectedFile, this.selectedFile.name);
     }
@@ -72,6 +75,7 @@ export class SignupComponent {
     this.authService.register(formData).subscribe(
       response => {
         console.log('User registered successfully:', response);
+        this.router.navigate(['/success']);
       },
       error => {
         console.error('There was an error!', error);

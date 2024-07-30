@@ -18,7 +18,7 @@ export interface User {
   cv: any; // assuming this is an ID reference to CV
   creationDate: Date;
   status: InternStatus;
-  
+
   lab: any ;
   internshipOffer: any; // assuming this is an ID reference to InternshipOffer
 }

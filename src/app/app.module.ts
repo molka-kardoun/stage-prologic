@@ -20,6 +20,7 @@ import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { RequestResetPasswordComponent } from './Backoffice/backall/contentback/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-password/reset-password.component';
+import { RegistersucessmsgComponent } from './Backoffice/backall/contentback/registersucessmsg/registersucessmsg.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-p
     ProfileComponent,
     CreateLabComponent,
     RequestResetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    RegistersucessmsgComponent
 
   ],
   imports: [
