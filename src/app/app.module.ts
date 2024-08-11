@@ -21,6 +21,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { RequestResetPasswordComponent } from './Backoffice/backall/contentback/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-password/reset-password.component';
 import { RegistersucessmsgComponent } from './Backoffice/backall/contentback/registersucessmsg/registersucessmsg.component';
+import { CreateQuizComponent } from './Backoffice/backall/contentback/create-quiz/create-quiz.component';
+import { SubmitQuizComponent } from './Backoffice/backall/contentback/submit-quiz/submit-quiz.component';
+import { InternshipOfferComponent } from './Backoffice/backall/contentback/internship-offer/internship-offer.component';
+import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/assign-quiz-to-offer/assign-quiz-to-offer.component';
+import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { RegistersucessmsgComponent } from './Backoffice/backall/contentback/reg
     CreateLabComponent,
     RequestResetPasswordComponent,
     ResetPasswordComponent,
-    RegistersucessmsgComponent
+    RegistersucessmsgComponent,
+    CreateQuizComponent,
+    SubmitQuizComponent,
+    InternshipOfferComponent,
+    AssignQuizToOfferComponent,
+    ListInternshipOffersComponent
 
   ],
   imports: [

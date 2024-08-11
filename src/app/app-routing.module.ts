@@ -14,6 +14,11 @@ import { ResetPasswordComponent } from './Backoffice/backall/contentback/reset-p
 import { RoleGuard } from './Core/Guards/role.guard';
 import { Roles } from './Core/models/Roles';
 import { RegistersucessmsgComponent } from './Backoffice/backall/contentback/registersucessmsg/registersucessmsg.component';
+import { CreateQuizComponent } from './Backoffice/backall/contentback/create-quiz/create-quiz.component';
+import { SubmitQuizComponent } from './Backoffice/backall/contentback/submit-quiz/submit-quiz.component';
+import { InternshipOfferComponent } from './Backoffice/backall/contentback/internship-offer/internship-offer.component';
+import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/assign-quiz-to-offer/assign-quiz-to-offer.component';
+import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
@@ -24,8 +29,16 @@ const routes: Routes = [
 
     {path: "home", component: BackallComponent , children: [
       {path: 'card', component: CardbComponent},
+
       {path: 'addlab',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ADMIN] },component: CreateLabComponent},
-      {path: 'profile/:id', component: ProfileComponent}
+      {path: 'profile/:id', component: ProfileComponent},
+      {path: 'createquiz',component: CreateQuizComponent},
+
+      { path: 'create-offer', component: InternshipOfferComponent },
+      { path: 'assign-quiz-offer', component: AssignQuizToOfferComponent },
+      { path: 'apply-internship/:id', component: SubmitQuizComponent },
+      { path: 'internship-offers', component: ListInternshipOffersComponent },
+
 
       ]}
 

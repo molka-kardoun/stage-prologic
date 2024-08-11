@@ -15,11 +15,11 @@ export interface User {
   department: string;
   gender: string;
   isEnabled: boolean;
-  cv: any; // assuming this is an ID reference to CV
+  cv?: string; // assuming this is an ID reference to CV
   creationDate: Date;
   status: InternStatus;
 
-  lab: any ;
-  internshipOffer: any; // assuming this is an ID reference to InternshipOffer
+  lab?: string[] ;
+  internshipOffer?: string; // assuming this is an ID reference to InternshipOffer
 }
 

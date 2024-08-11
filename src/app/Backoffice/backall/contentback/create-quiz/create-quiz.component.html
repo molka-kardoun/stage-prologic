@@ -1,0 +1,33 @@
+<form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="description">Description:</label>
+    <input id="description" formControlName="description" />
+  </div>
+
+  <div formArrayName="questions">
+    <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
+      <div>
+        <label for="questionText">Question {{i + 1}}:</label>
+        <input id="questionText" formControlName="text" />
+      </div>
+
+      <div formArrayName="responses">
+        <div *ngFor="let response of getResponses(i).controls; let j = index" [formGroupName]="j">
+          <div>
+            <label for="responseText">Response {{j + 1}}:</label>
+            <input id="responseText" formControlName="response" />
+            <label for="isTrue">Is True:</label>
+            <input type="checkbox" id="isTrue" formControlName="isTrue" />
+          </div>
+          <button (click)="removeResponse(i, j)">Remove Response</button>
+        </div>
+        <button (click)="addResponse(i)">Add Response</button>
+      </div>
+
+      <button (click)="removeQuestion(i)">Remove Question</button>
+    </div>
+    <button (click)="addQuestion()">Add Question</button>
+  </div>
+
+  <button type="submit">Create Quiz</button>
+</form>

@@ -1,0 +1,31 @@
+<div class="quiz-container" *ngIf="quiz && selectedOffer">
+  <h2>{{ selectedOffer.title }} Quiz</h2>
+
+  <form (ngSubmit)="submitQuiz()">
+    <div *ngFor="let question of quiz.questions; let i = index" class="question-block">
+      <p><strong>{{ i + 1 }}. {{ question.text }}</strong></p>
+
+      <div *ngFor="let response of question.responses" class="response-option">
+        <input
+          type="radio"
+          [name]="'question' + i"
+          [value]="response._id"
+          (change)="updateResponse(i, response._id)"
+          [id]="'response' + response._id"
+          [checked]="responses[i].responseId === response._id"
+        />
+        <label [for]="'response' + response._id">{{ response.response }}</label>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <button type="submit" class="submit-button">Submit Quiz</button>
+  </form>
+</div>
+
+<div *ngIf="!quiz || !selectedOffer" class="loading-message">
+  <p>Loading quiz details...</p>
+</div>

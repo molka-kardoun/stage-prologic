@@ -27,11 +27,11 @@ export class SignupComponent {
     department: '',
     gender: '',
     isEnabled: true,
-    cv: null,
+
     creationDate: new Date(),
-    status: InternStatus.DECLINED,
-    lab: null,
-    internshipOffer: null
+    status: InternStatus.DECLINED
+
+
   };
 
   selectedFile: File | null = null;

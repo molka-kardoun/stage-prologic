@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>List of Internship Offers</h2>
+  <div *ngFor="let offer of offers" class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ offer.title }}</h5>
+      <p class="card-text">{{ offer.description }}</p>
+      <p class="card-text"><strong>Technologies:</strong> {{ offer.technologies }}</p>
+      <p class="card-text"><strong>Start Date:</strong> {{ offer.startDate | date }}</p>
+      <p class="card-text"><strong>End Date:</strong> {{ offer.endDate | date }}</p>
+      <a [routerLink]="['/home/apply-internship', offer._id]" class="btn btn-primary">Take Quiz</a>
+    </div>
+    </div>
+  </div>
+
