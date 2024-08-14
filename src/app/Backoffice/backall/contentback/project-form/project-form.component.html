@@ -1,0 +1,28 @@
+<!-- src/app/project-form/project-form.component.html -->
+<div class="container">
+    <h2>Ajouter un Projet</h2>
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="organisation">Organisation</label>
+        <input id="organisation" class="form-control" formControlName="organisation" placeholder="Entrez le nom de l'organisation">
+      </div>
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input id="title" class="form-control" formControlName="title" placeholder="Entrez le titre du projet">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description" placeholder="Entrez la description du projet"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" type="date" class="form-control" formControlName="date">
+      </div>
+      <div class="form-group">
+        <label for="cv">CV</label>
+        <input id="cv" class="form-control" formControlName="cv" placeholder="Entrez l'identifiant du CV">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">Ajouter</button>
+    </form>
+  </div>
+  

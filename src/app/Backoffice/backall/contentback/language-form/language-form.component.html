@@ -1,0 +1,36 @@
+<form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="languageForm.get('name')?.invalid && languageForm.get('name')?.touched">
+        Name is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="level">Level:</label>
+      <input id="level" type="number" formControlName="level" />
+      <div *ngIf="languageForm.get('level')?.invalid && languageForm.get('level')?.touched">
+        Level must be between 0 and 10
+      </div>
+    </div>
+  
+    <div>
+      <label for="certification">Certification:</label>
+      <input id="certification" formControlName="certification" />
+      <div *ngIf="languageForm.get('certification')?.invalid && languageForm.get('certification')?.touched">
+        Certification is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="cv">CV ID:</label>
+      <input id="cv" formControlName="cv" />
+      <div *ngIf="languageForm.get('cv')?.invalid && languageForm.get('cv')?.touched">
+        CV ID is required
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="languageForm.invalid">Add Language</button>
+  </form>
+  

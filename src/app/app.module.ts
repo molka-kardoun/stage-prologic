@@ -18,12 +18,21 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './Backoffice/backall/contentback/profile/profile.component';
 import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/create-lab.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ForgetpwdComponent } from './Backoffice/backall/contentback/forgetpwd/forgetpwd.component';
+import { CertificationFormComponent } from './Backoffice/backall/contentback/certification-form/certification-form.component';
+import { EducationFormComponent } from './Backoffice/backall/contentback/education-form/education-form.component';
+import { SkillFormComponent } from './Backoffice/backall/contentback/skill-form/skill-form.component';
+import { ProjectFormComponent } from './Backoffice/backall/contentback/project-form/project-form.component';
+import { ExperienceFormComponent } from './Backoffice/backall/contentback/experience-form/experience-form.component';
+import { LanguageFormComponent } from './Backoffice/backall/contentback/language-form/language-form.component';
+import { CvComponent } from './Backoffice/backall/contentback/cv/cv.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
     BackallComponent,
     NavbackComponent,
     ContentbackComponent,
@@ -34,7 +43,19 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    CreateLabComponent
+    CreateLabComponent,
+    ForgetpwdComponent,
+    CertificationFormComponent,
+    EducationFormComponent,
+    SkillFormComponent,
+    ProjectFormComponent,
+    ExperienceFormComponent,
+    LanguageFormComponent,
+    CvComponent
+   
+    
+
+    
 
   ],
   imports: [

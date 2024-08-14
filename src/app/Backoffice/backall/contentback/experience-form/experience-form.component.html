@@ -1,0 +1,52 @@
+<form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="company">Company:</label>
+      <input id="company" formControlName="company" />
+      <div *ngIf="experienceForm.get('company')?.invalid && experienceForm.get('company')?.touched">
+        Company is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="job">Job:</label>
+      <input id="job" formControlName="job" />
+      <div *ngIf="experienceForm.get('job')?.invalid && experienceForm.get('job')?.touched">
+        Job is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="start_date">Start Date:</label>
+      <input id="start_date" type="date" formControlName="start_date" />
+      <div *ngIf="experienceForm.get('start_date')?.invalid && experienceForm.get('start_date')?.touched">
+        Start date is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="end_date">End Date:</label>
+      <input id="end_date" type="date" formControlName="end_date" />
+      <div *ngIf="experienceForm.get('end_date')?.invalid && experienceForm.get('end_date')?.touched">
+        End date is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="experienceForm.get('description')?.invalid && experienceForm.get('description')?.touched">
+        Description is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="cv">CV ID:</label>
+      <input id="cv" formControlName="cv" />
+      <div *ngIf="experienceForm.get('cv')?.invalid && experienceForm.get('cv')?.touched">
+        CV ID is required
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="experienceForm.invalid">Add Experience</button>
+  </form>
+  

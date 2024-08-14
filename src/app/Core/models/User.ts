@@ -1,13 +1,15 @@
-import { InternStatus } from "./InternStatus";
-import { Roles } from "./Roles";
+import { ForgetPassword } from './ForgetPassword';
+import { Lab } from './Lab';
+import { InternshipOffer } from './InternshipOffer';
+import { CV } from './CV';
 
 export interface User {
-  _id: string;
+  _id?: string;
   fullName: string;
   phone: string;
   email: string;
   password: string;
-  role: Roles;
+  role: string; // Roles enum
   image: string;
   nationality: string;
   dateOfBirth: string;
@@ -15,11 +17,10 @@ export interface User {
   department: string;
   gender: string;
   isEnabled: boolean;
-  cv: any; // assuming this is an ID reference to CV
+  cv?: CV;
   creationDate: Date;
-  status: InternStatus;
-  forgetPassword: any;
-  lab: any ;
-  internshipOffer: any; // assuming this is an ID reference to InternshipOffer
+  status: string; // InternStatus enum
+  forgetPassword?: ForgetPassword[];
+  lab?: Lab[];
+  internshipOffer?: InternshipOffer;
 }
-

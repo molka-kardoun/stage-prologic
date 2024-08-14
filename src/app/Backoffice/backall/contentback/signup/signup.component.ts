@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { InternStatus } from 'src/app/Core/models/InternStatus';
-import { Roles } from 'src/app/Core/models/Roles';
-import { User } from 'src/app/Core/models/User';
-import { AuthService } from 'src/app/Core/Services/auth.service';
+import { User } from '../../../../Core/models/User';
+import { AuthService } from '../../../../Core/Services/auth.service';
+
+import { Roles } from '../../../../Core/models/Roles';
+
+import { InternStatus } from '../../../../Core/models/InternStatus';
 
 @Component({
   selector: 'app-signup',
@@ -26,12 +28,11 @@ export class SignupComponent {
     department: '',
     gender: '',
     isEnabled: true,
-    cv: null,
+
     creationDate: new Date(),
     status: InternStatus.DECLINED,
-    forgetPassword: null,
-    lab: null,
-    internshipOffer: null
+
+  
   };
 
   selectedFile: File | null = null;

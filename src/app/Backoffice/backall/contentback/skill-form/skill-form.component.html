@@ -1,0 +1,32 @@
+<form [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Skill Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="skillForm.get('name')?.invalid && skillForm.get('name')?.touched">
+        Skill name is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="level">Skill Level:</label>
+      <input id="level" type="number" formControlName="level" />
+      <div *ngIf="skillForm.get('level')?.invalid && skillForm.get('level')?.touched">
+        Skill level must be between 0 and 10
+      </div>
+    </div>
+  
+    <div>
+      <label for="cv">CV ID:</label>
+      <input id="cv" formControlName="cv" />
+      <div *ngIf="skillForm.get('cv')?.invalid && skillForm.get('cv')?.touched">
+        CV ID is required
+      </div>
+      <br>
+      <br>
+
+
+    </div>
+  
+    <button type="submit" [disabled]="skillForm.invalid">Add Skill</button>
+  </form>
+  

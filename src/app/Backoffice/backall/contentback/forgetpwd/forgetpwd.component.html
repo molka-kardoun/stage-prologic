@@ -1,0 +1,43 @@
+<body>
+    <section class="container">
+      <div class="login-container">
+        <div class="circle circle-one"></div>
+        <div class="circle circle-two"></div>
+        <div class="form-container">
+          <div class="image-container">
+            <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+          </div>
+          <div class="progress-container">
+            <div class="progress" [ngStyle]="{ 'width': (step - 1) * 50 + '%' }"></div>
+            <div class="step" [ngClass]="{ 'active': step >= 1 }">1</div>
+            <div class="step" [ngClass]="{ 'active': step >= 2 }">2</div>
+            <div class="step" [ngClass]="{ 'active': step >= 3 }">3</div>
+          </div>
+          <h1 class="opacity">FORGOT PASSWORD</h1>
+          <form (ngSubmit)="submit()">
+            <!-- Step 1: Enter Email -->
+            <div *ngIf="step === 1">
+              <input [(ngModel)]="email" name="email" type="email" placeholder="Email" required>
+              <button type="button" class="opacity" (click)="nextStep()">Submit</button>
+            </div>
+            
+            <!-- Step 2: Enter Code -->
+            <div *ngIf="step === 2">
+              <input [(ngModel)]="code" name="code" type="text" placeholder="Enter Code" required>
+              <button type="button" class="opacity" (click)="verifyCode()">Verify Code</button>
+            </div>
+  
+            <!-- Step 3: Enter New Password -->
+            <div *ngIf="step === 3">
+              <input [(ngModel)]="newPassword" name="newPassword" type="password" placeholder="New Password" required>
+              <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password" required>
+              <button type="submit" class="opacity">Reset Password</button>
+            </div>
+          </form>
+          <div class="register-forget opacity">
+            <a routerLink="/login">BACK TO LOGIN</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
