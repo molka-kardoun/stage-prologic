@@ -38,6 +38,15 @@
                 <li *ngIf="auth.loggedIn()">
                   <a class="dropdown-item" [routerLink]="['/home/internship-offers']">Internship offers</a>
                 </li>
+                <li *ngIf="auth.loggedIn()">
+                  <a class="dropdown-item" [routerLink]="['/home/create-offer']">create offer</a>
+                </li>
+                <li *ngIf="auth.loggedIn()">
+                  <a class="dropdown-item" [routerLink]="['/home/createquiz']">create quiz</a>
+                </li>
+                <li *ngIf="auth.loggedIn()">
+                  <a class="dropdown-item" [routerLink]="['/home/assign-quiz-offer']">assign quiz-offer</a>
+                </li>
               </div>
             </li>
           </ul>

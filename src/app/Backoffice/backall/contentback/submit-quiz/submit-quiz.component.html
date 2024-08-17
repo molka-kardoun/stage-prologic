@@ -29,3 +29,8 @@
 <div *ngIf="!quiz || !selectedOffer" class="loading-message">
   <p>Loading quiz details...</p>
 </div>
+<!-- Section pour afficher le score après la soumission -->
+<div *ngIf="score !== null && quiz && quiz.questions" class="score-display">
+  <h3>Your Score: {{ score }}/{{ quiz.questions.length }}</h3>
+</div>
+

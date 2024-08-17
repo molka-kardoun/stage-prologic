@@ -17,7 +17,7 @@ export class SubmitQuizComponent implements OnInit {
   responses: { questionText: string; responseId: string | null }[] = [];
   userId: string | null = null;
   errorMessage: string | null = null;
-
+  score: number | null = null;
   constructor(
     private internshipOfferService: InternshipOfferService,
     private route: ActivatedRoute,
@@ -60,9 +60,9 @@ export class SubmitQuizComponent implements OnInit {
   }
 
   updateResponse(questionIndex: number, responseId: string): void {
-    console.log(`Updating response for question ${questionIndex} with response ID ${responseId}`);
+
     this.responses[questionIndex].responseId = responseId;
-    console.log('Updated responses:', this.responses);
+    console.log(`Updated response for question ${questionIndex} to ${responseId}`);
   }
 
   submitQuiz(): void {
@@ -81,6 +81,7 @@ export class SubmitQuizComponent implements OnInit {
         this.quizService.submitQuiz(payload.userId, payload.offerId, payload.responses).subscribe(
           evaluation => {
             console.log('Quiz submitted successfully', evaluation);
+            this.score = evaluation.score;
           },
           error => {
             console.error('Error submitting quiz:', error);

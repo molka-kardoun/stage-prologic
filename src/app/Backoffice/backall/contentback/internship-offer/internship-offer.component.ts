@@ -15,10 +15,15 @@ export class InternshipOfferComponent  {
     description: '',
     technologies: '',
     startDate: new Date(),
-    endDate: new Date()
+    endDate: new Date(),
+    task: []  // Initialisation du tableau des tâches
   };
 
   constructor(private offerService: InternshipOfferService) {}
+
+  addTask() {
+    this.offer.task!.push({ title: '', description: '', status: '', startDate: new Date(), endDate: new Date() });
+  }
 
   createOffer() {
     this.offerService.createInternshipOffer(this.offer).subscribe(response => {

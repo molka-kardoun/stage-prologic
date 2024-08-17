@@ -21,6 +21,35 @@
       <label for="endDate">End Date</label>
       <input type="date" id="endDate" class="form-control" [(ngModel)]="offer.endDate" name="endDate" required>
     </div>
+
+    <div class="form-group">
+      <label>Tasks</label>
+      <div *ngFor="let task of offer.task; let i = index" class="task-group">
+        <h5>Task {{ i + 1 }}</h5>
+        <div class="form-group">
+          <label for="taskTitle{{i}}">Title</label>
+          <input type="text" id="taskTitle{{i}}" class="form-control" [(ngModel)]="task.title" name="taskTitle{{i}}" required>
+        </div>
+        <div class="form-group">
+          <label for="taskDescription{{i}}">Description</label>
+          <textarea id="taskDescription{{i}}" class="form-control" [(ngModel)]="task.description" name="taskDescription{{i}}" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="taskStatus{{i}}">Status</label>
+          <input type="text" id="taskStatus{{i}}" class="form-control" [(ngModel)]="task.status" name="taskStatus{{i}}" required>
+        </div>
+        <div class="form-group">
+          <label for="taskStartDate{{i}}">Start Date</label>
+          <input type="date" id="taskStartDate{{i}}" class="form-control" [(ngModel)]="task.startDate" name="taskStartDate{{i}}" required>
+        </div>
+        <div class="form-group">
+          <label for="taskEndDate{{i}}">End Date</label>
+          <input type="date" id="taskEndDate{{i}}" class="form-control" [(ngModel)]="task.endDate" name="taskEndDate{{i}}" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="addTask()">Add Task</button>
+    </div>
+
     <button type="submit" class="btn btn-primary">Create Offer</button>
   </form>
 </div>
