@@ -62,5 +62,10 @@ getRole(): string {
 }
 
 
+updateProfile(id: string, userData: FormData) {
+  return this.http.put(`${this.url}/update/${id}`, userData);
+}
+
+
 
 }

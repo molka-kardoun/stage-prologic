@@ -26,6 +26,7 @@ import { SubmitQuizComponent } from './Backoffice/backall/contentback/submit-qui
 import { InternshipOfferComponent } from './Backoffice/backall/contentback/internship-offer/internship-offer.component';
 import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/assign-quiz-to-offer/assign-quiz-to-offer.component';
 import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
+import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/
     SubmitQuizComponent,
     InternshipOfferComponent,
     AssignQuizToOfferComponent,
-    ListInternshipOffersComponent
+    ListInternshipOffersComponent,
+    UpdateProfileComponent
 
   ],
   imports: [

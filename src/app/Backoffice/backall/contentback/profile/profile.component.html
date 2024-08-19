@@ -1,7 +1,20 @@
-<img [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="User Image">
-<h1>{{user.fullName}}</h1>
-<h1>{{user.dateOfBirth}}</h1>
-<h1>{{user.address}}</h1>
-<h1>{{user.department}}</h1>
-<h1>{{user.role}}</h1>
-<button class="btn btn-dark" routerLink="/home/card">create my cv </button>
+<div class="profile-container">
+  <img [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="User Image" class="profile-image">
+
+  <h1>{{user.fullName}}</h1>
+  <p><strong>Date of Birth:</strong> {{user.dateOfBirth}}</p>
+  <p><strong>Email:</strong> {{user.email}}</p>
+  <p><strong>Phone:</strong> {{user.phone}}</p>
+  <p><strong>Nationality:</strong> {{user.nationality}}</p>
+  <p><strong>Address:</strong> {{user.address}}</p>
+  <p><strong>Department:</strong> {{user.department}}</p>
+  <p><strong>Gender:</strong> {{user.gender}}</p>
+  <p><strong>Role:</strong> {{user.role}}</p>
+  <p><strong>Status:</strong> {{user.status}}</p>
+  <p><strong>Creation Date:</strong> {{user.creationDate | date}}</p>
+
+  <div class="profile-actions">
+    <button class="btn btn-primary" [routerLink]="['/home/update-profile', user._id]">Update Profile</button>
+    <button class="btn btn-dark" [routerLink]="['/home/card']">Create My CV</button>
+  </div>
+</div>

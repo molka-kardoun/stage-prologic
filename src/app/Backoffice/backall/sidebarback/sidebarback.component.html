@@ -8,9 +8,11 @@
     <div class="sidebar_user_info">
       <div class="icon_setting"></div>
       <div class="user_profle_side">
-        <div class="user_img"><img class="img-responsive" src="assets/images/layout_img/user_img.jpg" alt="#" /></div>
+        <div class="user_img"><img class="img-responsive" [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="#" /></div>
+
+
         <div class="user_info">
-          <h6>John David</h6>
+          <h6>{{user.fullName}}</h6>
           <p><span class="online_animation"></span> Online</p>
         </div>
       </div>
@@ -21,14 +23,21 @@
     <ul class="list-unstyled components">
       <li class="active">
         <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span>
+          <i class="fa fa-briefcase blue1_color"></i> <span>Internship offers</span>
         </a>
+
         <ul class="collapse list-unstyled" id="dashboard">
-          <li>
-            <a href="dashboard.html">> <span>Default Dashboard</span></a>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/internship-offers']">> <span> offers</span></a>
           </li>
-          <li>
-            <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/create-offer']">> <span>create offer </span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/createquiz']">> <span>create quiz </span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/assign-quiz-offer']">> <span>assign quiz-offer </span></a>
           </li>
         </ul>
       </li>
@@ -55,7 +64,7 @@
           <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
         </ul>
       </li>
-      <li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
+      <li><a href="price.html"><i class="fa fa-dashboard yellow_color"></i> <span>Pricing Tables</span></a></li>
       <li>
         <a href="contact.html">
           <i class="fa fa-paper-plane red_color"></i> <span>Contact</span>
