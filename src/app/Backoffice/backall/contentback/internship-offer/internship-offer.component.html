@@ -1,5 +1,13 @@
+
+<div class="row column4 graph justify-content-center">
+  <div class="col-md-8">
+     <div class="dash_blog">
+        <div class="dash_blog_inner">
+          <div class="dash_head">
+            <h3><span> Create Internship Offer </span></h3>
+</div>
 <div class="container">
-  <h2>Create Internship Offer</h2>
+
   <form (ngSubmit)="createOffer()">
     <div class="form-group">
       <label for="title">Title</label>
@@ -23,7 +31,10 @@
     </div>
 
     <div class="form-group">
-      <label>Tasks</label>
+
+    <div class="list_cont">
+
+
       <div *ngFor="let task of offer.task; let i = index" class="task-group">
         <h5>Task {{ i + 1 }}</h5>
         <div class="form-group">
@@ -46,10 +57,16 @@
           <label for="taskEndDate{{i}}">End Date</label>
           <input type="date" id="taskEndDate{{i}}" class="form-control" [(ngModel)]="task.endDate" name="taskEndDate{{i}}" required>
         </div>
+        <button type="button" class="btn btn-danger" (click)="removeTask(i)"><div class="fw_icon"><i class="fa fa-minus"></i>  Task</div></button>
       </div>
-      <button type="button" class="btn btn-secondary" (click)="addTask()">Add Task</button>
+    </div>
+    <div class="button_block question_button"><button type="button" class="btn cur-p btn-info" (click)="addTask()">  <div class="fw_icon"><i class="fa fa-plus"></i> Task</div></button></div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Offer</button>
+
+    <div class="read_more">
+      <div class="center"> <button  class="main_bt read_bt" type="submit">Create offer</button></div>
+
+    </div>
   </form>
 </div>

@@ -39,6 +39,10 @@
           <li *ngIf="auth.loggedIn()">
             <a [routerLink]="['/home/assign-quiz-offer']">> <span>assign quiz-offer </span></a>
           </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/offerdetails']">> <span> Applied Candidates </span></a>
+          </li>
+
         </ul>
       </li>
       <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>

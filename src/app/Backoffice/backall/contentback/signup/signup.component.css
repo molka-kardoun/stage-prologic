@@ -1,34 +1,39 @@
+/* Reset box-sizing for all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
 }
 
+/* Base body styling */
 body {
   margin: 0;
-  box-sizing: border-box;
-  font-family: "poppins";
-  background: #1a1a2e; /* Align background with login */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background: #1a1a2e; /* Dark background color */
   color: #ffffff;
   letter-spacing: 1px;
   transition: background 0.2s ease;
-  -webkit-transition: background 0.2s ease;
-  -moz-transition: background 0.2s ease;
-  -ms-transition: background 0.2s ease;
-  -o-transition: background 0.2s ease;
 }
 
+/* Link styling */
 a {
   text-decoration: none;
   color: #ffffff;
 }
 
+/* Heading styling */
 h1 {
   font-size: 2.5rem;
 }
 
+/* Center container */
 .container {
   display: flex;
   justify-content: center;
@@ -36,36 +41,46 @@ h1 {
   height: 100vh;
 }
 
+/* Login container styling */
 .login-container {
-  position: relative;
-  width: 45rem; /* Augmentez la largeur pour le rendre plus large */
-  padding: 2rem;
-  background: rgba(12, 10, 10, 0.5);
-  border-radius: 10px;
   display: flex;
+  justify-content: center; /* Center the form-container horizontally */
   align-items: center;
-  justify-content: space-between;
+  width: 50rem; /* Adjusted width */
+  height:auto;
+  padding: 2rem;
+  background: #1a1a2e;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+  position: relative;
+  overflow: hidden; /* Assurez-vous que l'image ne dépasse pas du conteneur */
+  border: 2px solid #0f3460; /* Bordure bleue de 2px */
 }
 
+/* Form content styling */
 .form-content {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+  text-align: center; /* Center text inside container */
 }
 
+/* Form container styling */
 .form-container {
-  border: 1px solid hsla(0, 0%, 65%, 0.158);
-  box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  backdrop-filter: blur(20px);
-  z-index: 9999999;
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  width: 60%;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  width: 100%;
+  max-width: 30rem; /* Restrict max width */
+  margin: 0 auto; /* Center horizontally */
 }
 
+/* Progress container styling */
 .progress-container {
   display: flex;
   justify-content: space-between;
@@ -73,6 +88,7 @@ h1 {
   position: relative;
 }
 
+/* Progress bar styling */
 .progress {
   position: absolute;
   top: 50%;
@@ -80,15 +96,12 @@ h1 {
   height: 4px;
   background-color: #0f3460; /* Blue */
   transition: width 0.3s;
-  -webkit-transition: width 0.3s;
-  -moz-transition: width 0.3s;
-  -ms-transition: width 0.3s;
-  -o-transition: width 0.3s;
   transform: translateY(-50%);
   z-index: 1;
   width: 0;
 }
 
+/* Step styling */
 .step {
   width: 24px;
   height: 24px;
@@ -98,51 +111,50 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  color: white;
+  color: #ffffff;
   z-index: 2;
   position: relative;
 }
 
+/* Active step styling */
 .step.active {
   background-color: #0f3460; /* Blue */
 }
 
-.login-container form input {
+/* Input field styling */
+.login-container form input:not([type="file"]) {
   display: block;
-  padding: 14.5px;
+  padding: 14px;
   width: 100%;
-  margin: 2rem 0;
+  margin: 1.5rem 0; /* Adjusted spacing */
   color: #ffffff;
   outline: none;
-  background-color: #9191911f;
+  background-color: rgba(145, 145, 145, 0.12); /* Adjusted color */
   border: none;
   border-radius: 5px;
   font-weight: 500;
   letter-spacing: 0.8px;
   font-size: 15px;
-  backdrop-filter: blur(15px);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  backdrop-filter: blur(10px);
 }
 
+/* Focused input styling */
 .login-container form input:focus {
-  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
   animation: wobble 0.3s ease-in;
-  -webkit-animation: wobble 0.3s ease-in;
-  -moz-animation: wobble 0.3s ease-in;
-  -ms-animation: wobble 0.3s ease-in;
-  -o-animation: wobble 0.3s ease-in;
 }
 
+/* Button container styling */
 .button-container {
   display: flex;
   justify-content: space-between;
 }
 
-.btn {
-  background-color: #c26706; /* Blue */
+
+
+/* Button styling */
+.btn-reg {
+  background-color: #e46c21; /* Orange */
   color: #ffffff;
   padding: 13px 30px;
   border-radius: 5px;
@@ -153,127 +165,163 @@ h1 {
   cursor: pointer;
   border: none;
   transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
+  margin-top: 30px;
 }
 
+/* Button styling */
+.btn {
+  background-color: #0f3460; /* Orange */
+  color: #ffffff;
+  padding: 13px 30px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: all 0.1s ease-in-out;
+  margin-top: 30px;
+}
+
+/* Button hover effect */
 .btn:hover {
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   transform: scale(1.02);
-  transition: transform 0.1s ease-in-out;
-  -webkit-transition: transform 0.1s ease-in-out;
-  -moz-transition: transform 0.1s ease-in-out;
-  -ms-transition: transform 0.1s ease-in-out;
-  -o-transition: transform 0.1s ease-in-out;
-}
-
-.circle {
-  width: 8rem;
-  height: 8rem;
-  background: #0f3460; /* Blue */
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  position: absolute;
 }
 
 
 
+/* Illustration styling */
 .illustration {
-  width: 30%;
-  margin-left: 2rem;
+  width: 40%; /* Augmentez la largeur selon vos besoins */
+  height: auto; /* Ajuste automatiquement la hauteur pour maintenir les proportions */
+  margin-left: 2rem; /* Ajustez ou supprimez si nécessaire */
 }
 
-.circle-one {
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-  transform: translate(45%, 45%);
-  -webkit-transform: translate(45%, 45%);
-  -moz-transform: translate(45%, 45%);
-  -ms-transform: translate(45%, 45%);
-  -o-transform: translate(45%, 45%);
-}
-
-.circle-two {
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transform: translate(-45%, -45%);
-  -webkit-transform: translate(-45%, -45%);
-  -moz-transform: translate(-45%, -45%);
-  -ms-transform: translate(-45%, -45%);
-  -o-transform: translate(-45%, -45%);
-}
-
-
-
-
+/* Register and forget password section */
 .register-forget {
   margin: 1rem 0;
   display: flex;
   justify-content: space-between;
 }
 
+/* Opacity styling */
 .opacity {
   opacity: 0.6;
 }
 
+/* Theme button container styling */
 .theme-btn-container {
   position: absolute;
   left: 0;
   bottom: 2rem;
 }
 
+/* Theme button styling */
 .theme-btn {
   cursor: pointer;
-  transition: all 0.3s ease-in;
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  -ms-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
+  transition: width 0.3s ease-in;
 }
 
+/* Theme button hover effect */
 .theme-btn:hover {
   width: 40px !important;
   transition: width 0.3s ease-in;
-  -webkit-transition: width 0.3s ease-in;
-  -moz-transition: width 0.3s ease-in;
-  -ms-transition: width 0.3s ease-in;
-  -o-transition: width 0.3s ease-in;
 }
 
+/* Keyframes for wobble animation */
 @keyframes wobble {
-  0% {
-      transform: scale(1.025);
-      -webkit-transform: scale(1.025);
-      -moz-transform: scale(1.025);
-      -ms-transform: scale(1.025);
-      -o-transform: scale(1.025);
+  0%, 100% {
+    transform: scale(1);
   }
-  25% {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
-  }
-  75% {
-      transform: scale(1.025);
-      -webkit-transform: scale(1.025);
-      -moz-transform: scale(1.025);
-      -ms-transform: scale(1.025);
-      -o-transform: scale(1.025);
-  }
-  100% {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
+  25%, 75% {
+    transform: scale(1.025);
   }
 }
+
+/* Hidden file input */
+.input {
+  max-width: 190px;
+  display: none;
+}
+
+/* File label styling */
+.labelFile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100px; /* Reduced height */
+  border: 2px dashed rgba(145, 145, 145, 0.12); /* Adjusted color */
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  color: #404040;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+/* File label hover effect */
+.labelFile:hover {
+  background-color: rgba(145, 145, 145, 0.12);
+  border-color: #0f3460;
+  color: #0f3460;
+}
+
+
+
+
+
+.select-wrapper {
+  position: relative;
+}
+
+.custom-select {
+
+  height: 40px;
+  padding: 5px 10px; /* Adjust to fit */
+  line-height: 40px;
+  font-size: 14px;
+  width: 100%;
+  color: #ffffff; /* Text color */
+  background-color: rgba(145, 145, 145, 0.12); /* Background color */
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  font-size: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+
+}
+
+.custom-select::after {
+  content: '\25BC'; /* Down arrow */
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #ffffff; /* Arrow color */
+}
+
+.custom-select option {
+  background-color: #1a1a2e; /* Options background color */
+  color: #ffffff; /* Options text color */
+}
+
+.custom-select option:checked {
+  background-color: #0f3460; /* Selected option background */
+  color: #ffffff; /* Selected option text */
+}
+
+.custom-select::-ms-expand {
+  display: none; /* Hide expand icon in IE */
+}
+
+
+
+

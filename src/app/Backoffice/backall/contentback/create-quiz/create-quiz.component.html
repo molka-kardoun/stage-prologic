@@ -1,33 +1,60 @@
+
+
+
+<div class="row column4 graph justify-content-center">
+  <div class="col-md-8">
+     <div class="dash_blog">
+        <div class="dash_blog_inner">
+          <div class="dash_head">
+            <h3><span> Create Quiz </span></h3>
+            </div>
 <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="description">Description:</label>
+
+    <div class="list_cont">
+    <label for="description"><h4>Description:</h4></label>
+
     <input id="description" formControlName="description" />
   </div>
-
+ <div class="task_list_main">
+  <ul class="task_list">
   <div formArrayName="questions">
     <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
       <div>
-        <label for="questionText">Question {{i + 1}}:</label>
+
+        <li><a for="questionText"><strong>Question {{i + 1}}:</strong></a>
         <input id="questionText" formControlName="text" />
+        <br></li>
       </div>
 
       <div formArrayName="responses">
         <div *ngFor="let response of getResponses(i).controls; let j = index" [formGroupName]="j">
           <div>
-            <label for="responseText">Response {{j + 1}}:</label>
+            <li><a for="responseText">Response {{j + 1}}:</a>
             <input id="responseText" formControlName="response" />
-            <label for="isTrue">Is True:</label>
-            <input type="checkbox" id="isTrue" formControlName="isTrue" />
-          </div>
-          <button (click)="removeResponse(i, j)">Remove Response</button>
-        </div>
-        <button (click)="addResponse(i)">Add Response</button>
-      </div>
 
-      <button (click)="removeQuestion(i)">Remove Question</button>
+            <label for="isTrue">Is True:</label>
+            <label class="container">  <input  checked="checked" type="checkbox" id="isTrue" formControlName="isTrue" />    <div class="checkmark"></div> </label>
+            <br></li>
+          </div>
+          <div class="button_block response_button"><button type="button" class="btn cur-p btn-secondary"(click)="removeResponse(i, j)">  <div class="fw_icon"><i class="fa fa-minus"></i> Response</div></button></div>
+        </div>
+       <div class="button_block response_button"><button type="button" class="btn cur-p btn-warning" (click)="addResponse(i)">  <div class="fw_icon"><i class="fa fa-plus"></i>Response</div></button></div>
+      </div>
+      <div class="button_block question_button"><button type="button" class="btn cur-p btn-dark"(click)="removeQuestion(i)">  <div class="fw_icon"><i class="fa fa-minus"></i> Question</div></button></div>
     </div>
-    <button (click)="addQuestion()">Add Question</button>
+    <div class="button_block question_button"><button type="button" class="btn cur-p btn-info"(click)="addQuestion()">  <div class="fw_icon"><i class="fa fa-plus"></i>Question</div></button></div>
+  </div>
+  </ul>
+ </div>
+ <div class="read_more">
+  <div class="center"> <button  class="main_bt read_bt" type="submit">Create Quiz</button></div>
+
+</div>
+
+</form>
+</div>
+        </div>
+     </div>
   </div>
 
-  <button type="submit">Create Quiz</button>
-</form>
+

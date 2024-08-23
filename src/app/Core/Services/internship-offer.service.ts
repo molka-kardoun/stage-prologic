@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { InternshipOffer } from '../models/InternshipOffer';
 import { Quiz } from '../models/Quiz';
+import { InternStatus } from '../models/InternStatus';
 
 
 @Injectable({
@@ -30,6 +31,12 @@ export class InternshipOfferService {
   getInternshipOfferById(id: string): Observable<InternshipOffer> { // New function to get offer by ID
     return this.http.get<InternshipOffer>(`${this.apiUrl}/internship-offers/${id}`);
   }
+  getDetailedInternshipOffers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/details`);
+  }
+
+
+
 }
 
 

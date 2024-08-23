@@ -20,6 +20,8 @@ import { InternshipOfferComponent } from './Backoffice/backall/contentback/inter
 import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/assign-quiz-to-offer/assign-quiz-to-offer.component';
 import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
 import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
+import { DetailedInternshipOffersComponent } from './Backoffice/backall/contentback/detailed-internship-offers/detailed-internship-offers.component';
+
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
@@ -40,6 +42,7 @@ const routes: Routes = [
       { path: 'apply-internship/:id', component: SubmitQuizComponent },
       { path: 'internship-offers', component: ListInternshipOffersComponent },
       {  path: 'update-profile/:id',  component: UpdateProfileComponent },
+      {  path: 'offerdetails',  component:  DetailedInternshipOffersComponent },
 
 
       ]}

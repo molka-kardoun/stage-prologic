@@ -1,0 +1,26 @@
+.internship-offers-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.internship-offer {
+  border: 1px solid #71b0fd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+}
+
+.internship-offer h3 {
+  margin-top: 0;
+}
+
+.internship-offer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.internship-offer li {
+  margin-bottom: 5px;
+}

@@ -1,5 +1,11 @@
-<div class="container">
-  <h2>Assign Quiz to Internship Offer</h2>
+<div class="row column4 graph justify-content-center">
+  <div class="col-md-8">
+    <div class="dash_blog">
+        <div class="dash_blog_inner">
+
+          <div class="dash_head">
+<h3><span> Assign Quiz to Internship Offer </span></h3>
+          </div>
   <div class="form-group">
     <label for="offer">Select Offer</label>
     <select id="offer" class="form-control" [(ngModel)]="selectedOfferId" name="offer">
@@ -12,5 +18,10 @@
       <option *ngFor="let quiz of quizzes" [value]="quiz._id">{{ quiz.description }}</option>
     </select>
   </div>
-  <button (click)="assignQuiz()" class="btn btn-primary">Assign Quiz</button>
+
+
+  <div class="read_more">
+    <div class="center"> <button  class="main_bt read_bt" (click)="assignQuiz()">Assign Quiz</button></div>
+
+  </div>
 </div>

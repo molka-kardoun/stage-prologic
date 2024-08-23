@@ -19,7 +19,7 @@ export class SignupComponent {
     phone: '',
     email: '',
     password: '',
-    role: Roles.ASSISTANT,
+    role: Roles.STAGIAIRE,
     image: '',
     nationality: '',
     dateOfBirth: '',
@@ -29,7 +29,7 @@ export class SignupComponent {
     isEnabled: true,
 
     creationDate: new Date(),
-    status: InternStatus.DECLINED
+    status: InternStatus.WAITING
 
 
   };

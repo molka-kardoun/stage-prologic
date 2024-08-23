@@ -24,6 +24,9 @@ export class InternshipOfferComponent  {
   addTask() {
     this.offer.task!.push({ title: '', description: '', status: '', startDate: new Date(), endDate: new Date() });
   }
+  removeTask(index: number) {
+    this.offer.task!.splice(index, 1);
+  }
 
   createOffer() {
     this.offerService.createInternshipOffer(this.offer).subscribe(response => {
