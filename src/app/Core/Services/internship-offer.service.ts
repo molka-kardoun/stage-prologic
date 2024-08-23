@@ -35,7 +35,10 @@ export class InternshipOfferService {
     return this.http.get(`${this.apiUrl}/details`);
   }
 
-
+ // Fonction pour mettre à jour le statut d'un utilisateur
+ updateUserStatus(userId: string, newStatus: string): Observable<void> {
+  return this.http.patch<void>(`${this.apiUrl}/${userId}/status`, { status: newStatus });
+}
 
 }
 

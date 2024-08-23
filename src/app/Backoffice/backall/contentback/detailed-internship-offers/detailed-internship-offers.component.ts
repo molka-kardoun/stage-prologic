@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InternStatus } from 'src/app/Core/models/InternStatus';
 import { InternshipOfferService } from 'src/app/Core/Services/internship-offer.service';
-
+import { InternStatus } from 'src/app/Core/models/InternStatus';
 
 @Component({
   selector: 'app-detailed-internship-offers',
@@ -11,7 +10,7 @@ import { InternshipOfferService } from 'src/app/Core/Services/internship-offer.s
 export class DetailedInternshipOffersComponent implements OnInit {
 
   detailedOffers: any[] = [];
-  internStatuses = Object.values(InternStatus);
+  statuses = Object.values(InternStatus); // Liste des statuts possibles
 
   constructor(private internshipOfferService: InternshipOfferService) {}
 
@@ -19,7 +18,6 @@ export class DetailedInternshipOffersComponent implements OnInit {
     this.fetchDetailedOffers();
   }
 
-  // Fonction pour récupérer les offres détaillées
   fetchDetailedOffers(): void {
     this.internshipOfferService.getDetailedInternshipOffers().subscribe(
       (data: any[]) => {
@@ -31,8 +29,14 @@ export class DetailedInternshipOffersComponent implements OnInit {
     );
   }
 
-
-
-
-
+  updateStatus(userId: string, newStatus: string): void {
+    this.internshipOfferService.updateUserStatus(userId, newStatus).subscribe(
+      () => {
+        console.log(`User status updated successfully for user ${userId}`);
+      },
+      (error) => {
+        console.error('Error updating user status', error);
+      }
+    );
+  }
 }

@@ -1,33 +1,41 @@
-
 <div class="row column4 graph justify-content-center">
   <div class="col-md-8">
-     <div class="dash_blog">
-        <div class="dash_blog_inner">
-          <div class="dash_head">
-            <h3><span> Applied Candidates </span></h3>
+    <div class="dash_blog">
+      <div class="dash_blog_inner">
+        <div class="dash_head">
+          <h3><span> Applied Candidates </span></h3>
+        </div>
+        <div class="list_cont">
+          <div class="internship-offers-container" *ngIf="detailedOffers.length > 0; else noOffers">
+            <div *ngFor="let offer of detailedOffers" class="internship-offer">
+              <h3>{{ offer.title }}</h3>
+              <p>{{ offer.description }}</p>
+              <p><strong>Quiz Description:</strong> {{ offer.quizDescription }}</p>
+
+              <h4>Applied interns:</h4>
+              <ul>
+                <li *ngFor="let user of offer.users">
+                  <strong>{{ user.fullName }}</strong> ({{ user.email }})
+                  <div *ngIf="user.score !== null && offer.quizDescription" class="score-display">
+                    <h6>Score: {{ user.score }}/{{ offer.quizQuestionsLength }}</h6>
+                  </div>
+                  <div>
+                    <label for="status-{{user.userId}}"> Status: </label>
+                    <select id="status-{{user.userId}}" [(ngModel)]="user.status">
+                      <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                    </select>
+
+                    <button (click)="updateStatus(user.userId, user.status)">Apply Status</button>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="list_cont">
-<div class="internship-offers-container" *ngIf="detailedOffers.length > 0; else noOffers">
-  <div *ngFor="let offer of detailedOffers" class="internship-offer">
-    <h3>{{ offer.title }}</h3>
-    <p>{{ offer.description }}</p>
-    <p><strong>Quiz Description:</strong> {{ offer.quizDescription }}</p>
-
-    <h4>Applied interns:</h4>
-    <ul>
-      <li *ngFor="let user of offer.users">
-        <strong>{{ user.fullName }}</strong> ({{ user.email }}) - Score: {{ user.score }}
-
-
-      </li>
-    </ul>
+          </div>
+          <ng-template #noOffers>
+            <p>No internship offers available.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-<ng-template #noOffers>
-  <p>No internship offers available.</p>
-</ng-template>
-</div>
-</div>
-</div>
 </div>
