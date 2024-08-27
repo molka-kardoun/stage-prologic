@@ -7,13 +7,13 @@
 <h3><span> Assign Quiz to Internship Offer </span></h3>
           </div>
   <div class="form-group">
-    <label for="offer">Select Offer</label>
+    <label for="offer">Select Offer :</label>
     <select id="offer" class="form-control" [(ngModel)]="selectedOfferId" name="offer">
       <option *ngFor="let offer of offers" [value]="offer._id">{{ offer.title }}</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="quiz">Select Quiz</label>
+    <label for="quiz">Select Quiz :</label>
     <select id="quiz" class="form-control" [(ngModel)]="selectedQuizId" name="quiz">
       <option *ngFor="let quiz of quizzes" [value]="quiz._id">{{ quiz.description }}</option>
     </select>

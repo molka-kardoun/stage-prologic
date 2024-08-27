@@ -1,0 +1,26 @@
+
+<div class="row column4 graph justify-content-center">
+  <div class="col-md-8">
+    <div class="dash_blog">
+        <div class="dash_blog_inner">
+
+          <div class="dash_head">
+          <h3><span> Supervisors for Internship Offers   </span></h3>
+          </div>
+
+<div *ngFor="let offer of offers" class="offer-container">
+  <h2>{{ offer.title }}</h2>
+  <p>{{ offer.description }}</p>
+
+  <h3>Supervisor:</h3>
+  <p>{{ offer.encadrant?.fullName }} ({{ offer.encadrant?.email }})</p>
+
+  <h3>Interns:</h3>
+  <ul>
+    <li *ngFor="let user of offer.user">
+      {{ user.fullName }} ({{ user.email }})
+    </li>
+  </ul>
+
+  <hr>
+</div>

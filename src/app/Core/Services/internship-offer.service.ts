@@ -39,6 +39,23 @@ export class InternshipOfferService {
  updateUserStatus(userId: string, newStatus: string): Observable<void> {
   return this.http.patch<void>(`${this.apiUrl}/${userId}/status`, { status: newStatus });
 }
+getAcceptedUsersForOffers(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/accepted-users`);
+}
+
+getUsersWithRoleEncadrant(): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl}/encadrants`);
+}
+assignEncadrantToOffer(encadrantId: string, offerId: string): Observable<any> {
+  return this.http.post<any>(`${this.apiUrl}/assignEncadrant`, { encadrantId, offerId });
+}
+getOffersWithEncadrantAndAcceptedUsers(): Observable<any> {
+
+  return this.http.get<any>(`${this.apiUrl}/offers-encadrant-accepted-users`);
+}
+getUsersForEncadrant(encadrantId: string): Observable<any> {
+  return this.http.get(`${this.apiUrl}/users-for-encadrant/${encadrantId}`);
+}
 
 }
 

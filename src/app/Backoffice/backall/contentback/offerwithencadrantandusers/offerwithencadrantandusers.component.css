@@ -1,0 +1,50 @@
+.offer-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.offer-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.offer-container p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.offer-container h3 {
+  font-size: 20px;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.offer-container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.offer-container ul li {
+  font-size: 16px;
+  color: #444;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.offer-container ul li:last-child {
+  border-bottom: none;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin-top: 20px;
+}

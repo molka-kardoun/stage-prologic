@@ -1,0 +1,59 @@
+/* Style du conteneur global */
+.offer-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style pour le titre de chaque offre */
+.offer-title {
+  font-size: 24px;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+/* Style pour la description de chaque offre */
+.offer-description {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+/* Style pour la liste des utilisateurs */
+.user-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style pour chaque utilisateur */
+.user-list li {
+  background-color: #e9ecef;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style pour le nom de l'utilisateur */
+.user-name {
+  font-weight: bold;
+  color: #495057;
+}
+
+/* Style pour l'e-mail de l'utilisateur */
+.user-email {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.user-email:hover {
+  text-decoration: underline;
+}

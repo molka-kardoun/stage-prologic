@@ -1,3 +1,4 @@
+
 <div class="topbar">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="full">
@@ -30,13 +31,18 @@
                   {{user.fullName}}</span>
               </a>
               <div class="dropdown-menu">
-                <li *ngIf="auth.loggedIn()">
-                  <a class="dropdown-item" [routerLink]="['/home/profile', auth.getUserdatafromtoken()._id]">My Profile</a>
-                </li>
-                <li *ngIf="auth.loggedIn()">
-                  <a class="dropdown-item" (click)="logout()"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
-                </li>
-            
+
+                  <a *ngIf="auth.loggedIn()" class="dropdown-item" (click)="navigateToProfile()">My Profile</a>
+
+
+
+                  <a *ngIf="auth.loggedIn()" class="dropdown-item" (click)="logout()">
+                    <span>Log Out</span>
+                    <i class="fa fa-sign-out" style="margin-left: 8px;"></i>
+                  </a>
+
+
+
               </div>
             </li>
           </ul>

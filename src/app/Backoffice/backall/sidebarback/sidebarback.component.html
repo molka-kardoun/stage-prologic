@@ -8,7 +8,7 @@
     <div class="sidebar_user_info">
       <div class="icon_setting"></div>
       <div class="user_profle_side">
-        <div class="user_img"><img class="img-responsive" [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="#" /></div>
+        <div class="user_img"><img  class="img-responsive" [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="#" /></div>
 
 
         <div class="user_info">
@@ -28,20 +28,36 @@
 
         <ul class="collapse list-unstyled" id="dashboard">
           <li *ngIf="auth.loggedIn()">
-            <a [routerLink]="['/home/internship-offers']">> <span> offers</span></a>
+            <a [routerLink]="['/home/internship-offers']">> <span> Offers</span></a>
           </li>
           <li *ngIf="auth.loggedIn()">
-            <a [routerLink]="['/home/create-offer']">> <span>create offer </span></a>
+            <a [routerLink]="['/home/create-offer']">> <span>Create offer </span></a>
           </li>
           <li *ngIf="auth.loggedIn()">
-            <a [routerLink]="['/home/createquiz']">> <span>create quiz </span></a>
+            <a [routerLink]="['/home/createquiz']">> <span>Create quiz </span></a>
           </li>
           <li *ngIf="auth.loggedIn()">
-            <a [routerLink]="['/home/assign-quiz-offer']">> <span>assign quiz-offer </span></a>
+            <a [routerLink]="['/home/assign-quiz-offer']">> <span>Assign quiz-offer </span></a>
           </li>
           <li *ngIf="auth.loggedIn()">
             <a [routerLink]="['/home/offerdetails']">> <span> Applied Candidates </span></a>
           </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/acceptedinterns']">> <span> Accepted interns </span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/AssignEncadrant']">> <span> Assign supervisor </span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/offerwithecadrant&users']">><span>Supervisors-Accepted interns</span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/myinterns']">><span>My interns</span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/list-candidates']">><span>List candidates</span></a>
+          </li>
+
 
         </ul>
       </li>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/Core/Services/auth.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
 export class NavbackComponent implements OnInit {
   id:any;
 user:any;
-constructor(public auth:AuthService,private act:ActivatedRoute ){}
+constructor(public auth:AuthService,private act:ActivatedRoute , private router: Router){}
 ngOnInit(): void {
   this.id=this.auth.getUserdatafromtoken()._id;
   this.auth.getuserbyid(this.id).subscribe(res=>{
@@ -19,6 +19,12 @@ ngOnInit(): void {
 });}
 logout(){
   this.auth.logout();
+}
+navigateToProfile() {
+  const userId = this.auth.getUserdatafromtoken()._id;
+  this.router.navigateByUrl(`/home/profile/${userId}`).then(() => {
+    window.location.reload();  // Force the page to reload
+  });
 }
 
 

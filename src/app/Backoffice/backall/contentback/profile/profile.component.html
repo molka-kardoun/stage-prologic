@@ -35,9 +35,8 @@
           </div>
         </div>
 
-        <div class="profile-actions">
+        <div class="profile-actions" *ngIf="isOwner">
           <button class="main_bt read_bt" [routerLink]="['/home/update-profile', user._id]">Update Profile</button>
-          
         </div>
       </div>
     </div>

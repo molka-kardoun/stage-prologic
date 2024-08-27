@@ -20,8 +20,9 @@
               <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
               <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required>
               <div class="button-container">
-                <button type="button" class="btn back" (click)="previousStep()" [disabled]="step === 1">Back</button>
-                <button type="button" class="btn next" (click)="nextStep()">Next</button>
+                <button type="button" class="btn back" (click)="previousStep()" [disabled]="step === 1"><div class="fw_icon"><i class="fa fa-backward"> Back</i></div></button>
+                <button type="button" class="btn next" (click)="nextStep()">Next <div class="fw_icon"><i class="fa fa-forward"></i></div></button>
+
               </div>
             </div>
 
@@ -75,8 +76,8 @@
               <input [(ngModel)]="user.nationality" name="nationality" type="text" placeholder="Nationality" required>
               <input [(ngModel)]="user.dateOfBirth" name="dateOfBirth" type="date" placeholder="Date of Birth" required>
               <div class="button-container">
-                <button type="button" class="btn back" (click)="previousStep()">Back</button>
-                <button type="button" class="btn next" (click)="nextStep()">Next</button>
+                <button type="button" class="btn back" (click)="previousStep()"><div class="fw_icon"><i class="fa fa-backward"> Back</i></div></button>
+                <button type="button" class="btn next" (click)="nextStep()"> Next<div class="fw_icon"><i class="fa fa-forward"></i></div></button>
               </div>
             </div>
 <!-- Step 3 -->
@@ -90,8 +91,42 @@
     </select>
   </div>
   <div class="button-container">
-    <button type="button" class="btn back" (click)="previousStep()">Back</button>
-    <button type="submit" class="btn-reg next">Register</button>
+    <button type="button" class="btn back" (click)="previousStep()"><div class="fw_icon"><i class="fa fa-backward"> Back</i></div></button>
+
+    <button class="btn-reg next">
+      Register
+      <div class="star-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+      <div class="star-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+      <div class="star-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+      <div class="star-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+      <div class="star-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+      <div class="star-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 784.11 815.53">
+          <path class="fil0" d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"></path>
+        </svg>
+      </div>
+    </button>
+
   </div>
 </div>
 

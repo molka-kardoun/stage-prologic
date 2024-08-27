@@ -28,6 +28,11 @@ import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/ass
 import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
 import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
 import { DetailedInternshipOffersComponent } from './Backoffice/backall/contentback/detailed-internship-offers/detailed-internship-offers.component';
+import { AcceptedinternsComponent } from './Backoffice/backall/contentback/acceptedinterns/acceptedinterns.component';
+import { AssignEncadrantComponent } from './Backoffice/backall/contentback/assign-encadrant/assign-encadrant.component';
+import { OfferwithencadrantandusersComponent } from './Backoffice/backall/contentback/offerwithencadrantandusers/offerwithencadrantandusers.component';
+import { EncadrantDashboardComponent } from './Backoffice/backall/contentback/encadrant-dashboard/encadrant-dashboard.component';
+import { ListcandidatesComponent } from './Backoffice/backall/contentback/listcandidates/listcandidates.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +59,12 @@ import { DetailedInternshipOffersComponent } from './Backoffice/backall/contentb
     AssignQuizToOfferComponent,
     ListInternshipOffersComponent,
     UpdateProfileComponent,
-    DetailedInternshipOffersComponent
+    DetailedInternshipOffersComponent,
+    AcceptedinternsComponent,
+    AssignEncadrantComponent,
+    OfferwithencadrantandusersComponent,
+    EncadrantDashboardComponent,
+    ListcandidatesComponent
 
   ],
   imports: [

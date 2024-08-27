@@ -21,7 +21,11 @@ import { AssignQuizToOfferComponent } from './Backoffice/backall/contentback/ass
 import { ListInternshipOffersComponent } from './Backoffice/backall/contentback/list-internship-offers/list-internship-offers.component';
 import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
 import { DetailedInternshipOffersComponent } from './Backoffice/backall/contentback/detailed-internship-offers/detailed-internship-offers.component';
-
+import { AcceptedinternsComponent } from './Backoffice/backall/contentback/acceptedinterns/acceptedinterns.component';
+import { AssignEncadrantComponent } from './Backoffice/backall/contentback/assign-encadrant/assign-encadrant.component';
+import { OfferwithencadrantandusersComponent } from './Backoffice/backall/contentback/offerwithencadrantandusers/offerwithencadrantandusers.component';
+import { EncadrantDashboardComponent } from './Backoffice/backall/contentback/encadrant-dashboard/encadrant-dashboard.component';
+import { ListcandidatesComponent } from './Backoffice/backall/contentback/listcandidates/listcandidates.component';
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
@@ -43,6 +47,12 @@ const routes: Routes = [
       { path: 'internship-offers', component: ListInternshipOffersComponent },
       {  path: 'update-profile/:id',  component: UpdateProfileComponent },
       {  path: 'offerdetails',  component:  DetailedInternshipOffersComponent },
+      {  path: 'acceptedinterns',  component:  AcceptedinternsComponent },
+      {  path: 'AssignEncadrant',  component:  AssignEncadrantComponent },
+      {  path: 'offerwithecadrant&users',  component:  OfferwithencadrantandusersComponent },
+      {path: 'myinterns',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ENCADRANT] },component:EncadrantDashboardComponent},
+      {path: 'list-candidates',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ASSISTANT] },component:ListcandidatesComponent},
+
 
 
       ]}
