@@ -1,0 +1,60 @@
+
+
+
+
+/* Liste des tâches */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+
+
+/* Progression */
+li span {
+  font-weight: bold;
+  color: #3da825;
+}
+
+li span.not-approved  {
+  color: #de6114;
+  font-weight: bold;
+}
+
+
+
+/* Approbation */
+span {
+  font-weight: bold;
+  color: #3da825;
+}
+
+ng-template {
+  font-weight: bold;
+  color: #de6114;
+}
+
+/* Media Query pour les petits écrans */
+@media (max-width: 600px) {
+  div {
+    padding: 15px;
+  }
+
+  li {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}

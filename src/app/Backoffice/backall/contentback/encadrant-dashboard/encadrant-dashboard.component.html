@@ -1,20 +1,31 @@
-
-
 <div class="row column4 graph justify-content-center">
   <div class="col-md-8">
-     <div class="dash_blog">
-        <div class="dash_blog_inner">
-          <div class="dash_head">
-            <h3><span> welcome Supervisor  </span></h3>
-            </div>
-<div class="encadrant-dashboard" *ngIf="users.length > 0">
-  <h2> Your interns </h2>
-  <ul>
-    <li *ngFor="let user of users">
-      {{ user.name }} - {{ user.email }}
-    </li>
-  </ul>
-</div>
-<div class="encadrant-dashboard" *ngIf="users.length === 0">
-  <p>No users found for this supervisor.</p>
+    <div class="dash_blog">
+      <div class="dash_blog_inner">
+        <div class="dash_head">
+          <h3><span>Welcome Supervisor</span></h3>
+        </div>
+
+        <div class="encadrant-dashboard" *ngIf="offers.length > 0">
+          <h2>Your Internship Offers</h2>
+          <ul>
+            <li *ngFor="let offer of offers">
+              <h4>{{ offer.title }}</h4>
+              <p>{{ offer.description }}</p>
+              <h5>Your interns:</h5>
+              <ul>
+                <li *ngFor="let user of offer.users">
+                  {{ user.fullName }} - {{ user.email }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="encadrant-dashboard" *ngIf="offers.length === 0">
+          <p>No offers found for this supervisor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

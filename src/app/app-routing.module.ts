@@ -26,6 +26,8 @@ import { AssignEncadrantComponent } from './Backoffice/backall/contentback/assig
 import { OfferwithencadrantandusersComponent } from './Backoffice/backall/contentback/offerwithencadrantandusers/offerwithencadrantandusers.component';
 import { EncadrantDashboardComponent } from './Backoffice/backall/contentback/encadrant-dashboard/encadrant-dashboard.component';
 import { ListcandidatesComponent } from './Backoffice/backall/contentback/listcandidates/listcandidates.component';
+import { TaskManagementComponent } from './Backoffice/backall/contentback/task-management/task-management.component';
+import { MyTasksComponent } from './Backoffice/backall/contentback/my-tasks/my-tasks.component';
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
@@ -52,7 +54,8 @@ const routes: Routes = [
       {  path: 'offerwithecadrant&users',  component:  OfferwithencadrantandusersComponent },
       {path: 'myinterns',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ENCADRANT] },component:EncadrantDashboardComponent},
       {path: 'list-candidates',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ASSISTANT] },component:ListcandidatesComponent},
-
+      {  path: 'my-tasks',  component:  MyTasksComponent },
+      {  path: 'task-management',  component:  TaskManagementComponent },
 
 
       ]}

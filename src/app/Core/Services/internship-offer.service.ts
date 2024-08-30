@@ -57,6 +57,10 @@ getUsersForEncadrant(encadrantId: string): Observable<any> {
   return this.http.get(`${this.apiUrl}/users-for-encadrant/${encadrantId}`);
 }
 
+getUsersofferForEncadrant(encadrantId: string): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}/encadrantinfo/${encadrantId}`);
+}
+
 }
 
 

@@ -1,0 +1,32 @@
+
+<div class="row column4 graph justify-content-center">
+  <div class="col-md-8">
+    <div class="dash_blog">
+      <div class="dash_blog_inner">
+          <div class="dash_head">
+            <h3> My tasks </h3>
+            </div>
+<div *ngIf="tasks">
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{ task.title }} - Progression : {{ task.progress }}%
+      <br>
+      Is it approved?
+
+      <span *ngIf="task.isApproved; else notApproved">yes</span>
+      <ng-template #notApproved>
+        <span class="not-approved">Not yet</span>
+      </ng-template>
+      <br>
+
+      <div class="read_more">
+        <div class="center"> <button  class="main_bt read_bt"  *ngIf="!task.isApproved" (click)="openModal(task._id)">Update progress</button></div>
+
+      </div>
+
+    </li>
+  </ul>
+</div>
+
+<app-progress-modal *ngIf="selectedTaskId" [taskId]="selectedTaskId" (closeModal)="closeModal()"></app-progress-modal>

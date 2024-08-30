@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InternshipOffer } from 'src/app/Core/models/InternshipOffer';
+import { TaskStatus } from 'src/app/Core/models/TaskStatus';
 import { InternshipOfferService } from 'src/app/Core/Services/internship-offer.service';
 import { QuizService } from 'src/app/Core/Services/quiz.service';
 
@@ -22,7 +23,7 @@ export class InternshipOfferComponent  {
   constructor(private offerService: InternshipOfferService) {}
 
   addTask() {
-    this.offer.task!.push({ title: '', description: '', status: '', startDate: new Date(), endDate: new Date() });
+    this.offer.task!.push({ title: '', description: '', startDate: new Date(), endDate: new Date() });
   }
   removeTask(index: number) {
     this.offer.task!.splice(index, 1);

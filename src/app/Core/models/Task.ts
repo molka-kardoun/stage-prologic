@@ -1,13 +1,16 @@
-import { InternshipOffer } from "./InternshipOffer";
+
+import { TaskStatus } from "./TaskStatus";
 
 
 export interface Task {
   _id?: string;
-  date?: Date;
   description: string;
   title: string;
-  status: string;
   startDate: Date;
   endDate: Date;
-  internshipOffer?: InternshipOffer;
+  internshipOffer?: string;
+  status?: TaskStatus;
+  isApproved?: boolean;
+  assignedTo?: string;
+  progress?:number;
 }
