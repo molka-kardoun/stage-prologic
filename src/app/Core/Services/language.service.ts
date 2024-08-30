@@ -8,27 +8,27 @@ import { Language } from '../models/Language';
 })
 export class LanguageService {
 
-  private apiUrl = 'http://localhost:3000/language';
+  private apiUrl = 'http://localhost:3000/language'; // Changement du chemin de base
 
   constructor(private http: HttpClient) { }
 
   addLanguage(language: Language): Observable<Language> {
-    return this.http.post<Language>(`${this.apiUrl}/add`, language);
+    return this.http.post<Language>(`${this.apiUrl}/create`, language); // Correspondance avec le contrôleur
   }
 
   getLanguages(): Observable<Language[]> {
-    return this.http.get<Language[]>(`${this.apiUrl}/getall`);
+    return this.http.get<Language[]>(`${this.apiUrl}/`); // Correspondance avec le contrôleur
   }
 
   getLanguageById(id: string): Observable<Language> {
-    return this.http.get<Language>(`${this.apiUrl}/getbyid/${id}`);
+    return this.http.get<Language>(`${this.apiUrl}/${id}`); // Correspondance avec le contrôleur
   }
 
   updateLanguage(id: string, language: Language): Observable<Language> {
-    return this.http.put<Language>(`${this.apiUrl}/update/${id}`, language);
+    return this.http.put<Language>(`${this.apiUrl}/update/${id}`, language); // Correspondance avec le contrôleur
   }
 
   deleteLanguage(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/del/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`); // Correspondance avec le contrôleur
   }
 }

@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from '../../../../Core/Services/experience.service';
-import { LanguageService } from '../../../../Core/Services/language.service';
-import { CertificationService } from '../../../../Core/Services/certification.service';
-import { ProjetService } from '../../../../Core/Services/project.service';
-import { SkillService } from '../../../../Core/Services/skill.service';
-import { EducationService } from '../../../../Core/Services/education.service';
+import { AuthService } from '../../../../Core/Services/auth.service';
 import { Experience } from '../../../../Core/models/Experience';
-import { Language } from '../../../../Core/models/Language';
-import { Certification } from '../../../../Core/models/Certification';
-import { projet as Project } from '../../../../Core/models/Projet';
-import { Skill } from '../../../../Core/models/Skill';
-import { Education } from '../../../../Core/models/Education';
+import { ProjetService } from '../../../../Core/Services/project.service'; // Import the project service
+import { projet } from '../../../../Core/models/Projet'; // Import the project model
+import { MatDialog } from '@angular/material/dialog'; // Import MatDialog
+import { ExperienceFormComponent } from '../experience-form/experience-form.component'; // Import the form component
+import { ProjectFormComponent } from '../project-form/project-form.component'; // Import the project form component
+
 
 @Component({
   selector: 'app-cv',
@@ -18,148 +15,125 @@ import { Education } from '../../../../Core/models/Education';
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
+  userId!: string;
   experiences: Experience[] = [];
-  languages: Language[] = [];
-  certifications: Certification[] = [];
-  projects: Project[] = [];
-  skills: Skill[] = [];
-  education: Education[] = [];
-
-  showAddExperience = false;
-  showAddLanguage = false;
-  showAddCertification = false;
-  showAddProject = false;
-  showAddSkill = false;
-  showAddEducation = false;
+  projects: projet[] = []; // Add a projects array
+  selectedExperience?: Experience; // Track the selected experience for editing
+  selectedProject?: projet; // Track the selected project for editing
 
   constructor(
     private experienceService: ExperienceService,
-    private languageService: LanguageService,
-    private certificationService: CertificationService,
-    private projectService: ProjetService,
-    private skillService: SkillService,
-    private educationService: EducationService
+    private projetService: ProjetService, // Inject the project service
+    private authService: AuthService,
+    public dialog: MatDialog // Inject MatDialog
   ) {}
 
   ngOnInit(): void {
-    this.loadData();
-    
+    this.userId = this.authService.getUserdatafromtoken()._id;
+    this.loadExperiences();
+    this.loadProjects(); // Load projects on initialization
   }
 
-  loadData(): void {
-    this.experienceService.getExperiences().subscribe(data => this.experiences = data);
-    this.languageService.getLanguages().subscribe(data => this.languages = data);
-    this.certificationService.getCertifications().subscribe(data => this.certifications = data);
-    this.projectService.getAllProjects().subscribe(data => this.projects = data);
-    this.skillService.getSkills().subscribe(data => this.skills = data);
-    this.educationService.getAllEducations().subscribe(data => this.education = data);
+  loadExperiences(): void {
+    this.experienceService.getExperiencesByUserId(this.userId).subscribe({
+      next: (data: Experience[]) => {
+        this.experiences = data;
+      },
+      error: (err: any) => { // Specify the type of err as any
+        console.error('Error fetching experiences:', err);
+      }
+    });
   }
 
-  toggleAddExperience(): void {
-    this.showAddExperience = !this.showAddExperience;
+  loadProjects(): void {
+    this.projetService.getProjectsByUserId(this.userId).subscribe({
+      next: (data: projet[]) => {
+        this.projects = data;
+      },
+      error: (err: any) => {
+        console.error('Error fetching projects:', err);
+      }
+    });
   }
 
-  toggleAddLanguage(): void {
-    this.showAddLanguage = !this.showAddLanguage;
+  deleteExperience(id: string): void {
+    if (confirm('Are you sure you want to delete this experience?')) {
+      this.experienceService.deleteExperience(id).subscribe({
+        next: () => {
+          this.loadExperiences(); // Refresh the list after deletion
+        },
+        error: (err: any) => { // Specify the type of err as any
+          console.error('Error deleting experience:', err);
+        }
+      });
+    }
   }
 
-  toggleAddCertification(): void {
-    this.showAddCertification = !this.showAddCertification;
-  }
-
-  toggleAddProject(): void {
-    this.showAddProject = !this.showAddProject;
-  }
-
-  toggleAddSkill(): void {
-    this.showAddSkill = !this.showAddSkill;
-  }
-
-  toggleAddEducation(): void {
-    this.showAddEducation = !this.showAddEducation;
+  deleteProject(id: string): void {
+    if (confirm('Are you sure you want to delete this project?')) {
+      this.projetService.deleteProject(id).subscribe({
+        next: () => {
+          this.loadProjects();
+        },
+        error: (err: any) => {
+          console.error('Error deleting project:', err);
+        }
+      });
+    }
   }
 
   editExperience(experience: Experience): void {
-    // Logic for editing an experience
+    this.selectedExperience = experience; // Set the selected experience
+    this.openExperienceDialog(experience); // Open dialog for editing
+  }
+  editProject(project: projet): void {
+    this.selectedProject = project;
+    this.openProjectDialog(project);
   }
 
-  deleteExperience(experience: Experience): void {
-    if (experience._id) {
-      this.experienceService.deleteExperience(experience._id).subscribe(() => {
-        this.loadData();
-      });
+  openExperienceDialog(experience?: Experience): void {
+    const dialogRef = this.dialog.open(ExperienceFormComponent, {
+      width: '600px',
+      data: { experience } // Pass the experience data if available
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.loadExperiences(); // Reload experiences after the dialog is closed
+      }
+    });
+  }
+
+  openProjectDialog(project?: projet): void {
+    const dialogRef = this.dialog.open(ProjectFormComponent, {
+      width: '600px',
+      data: { project }
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.loadProjects(); // Recharge les projets après la fermeture de la boîte de dialogue
+      }
+    });
+  }
+
+  
+  onProjectUpdated(updatedProject: projet): void {
+    const index = this.projects.findIndex(proj => proj. _id === updatedProject._id);
+    if (index !== -1) {
+      this.projects[index] = updatedProject;
     } else {
-      console.error('Experience ID is undefined');
+      this.projects.push(updatedProject); // Add new project if it was created
     }
+    this.selectedProject = undefined; // Clear the selected project after updating
   }
-
-  editLanguage(language: Language): void {
-    // Logic for editing a language
-  }
-
-  deleteLanguage(language: Language): void {
-    if (language._id) {
-      this.languageService.deleteLanguage(language._id).subscribe(() => {
-        this.loadData();
-      });
-    } else {
-      console.error('Language ID is undefined');
+  onExperienceUpdated(updatedExperience: Experience): void {
+    // Replace the updated experience in the list
+    const index = this.experiences.findIndex(exp => exp._id === updatedExperience._id);
+    if (index !== -1) {
+      this.experiences[index] = updatedExperience;
     }
+    this.selectedExperience = undefined; // Clear the selected experience after updating
   }
 
-  editCertification(certification: Certification): void {
-    // Logic for editing a certification
-  }
-
-  deleteCertification(certification: Certification): void {
-    if (certification._id) {
-      this.certificationService.deleteCertification(certification._id).subscribe(() => {
-        this.loadData();
-      });
-    } else {
-      console.error('Certification ID is undefined');
-    }
-  }
-
-  editProject(project: Project): void {
-    // Logic for editing a project
-  }
-
-  deleteProject(project: Project): void {
-    if ((project as any)._id) {
-      this.projectService.deleteProject((project as any)._id).subscribe(() => {
-        this.loadData();
-      });
-    } else {
-      console.error('Project ID is undefined');
-    }
-  }
-
-  editSkill(skill: Skill): void {
-    // Logic for editing a skill
-  }
-
-  deleteSkill(skill: Skill): void {
-    if (skill._id) {
-      this.skillService.deleteSkill(skill._id).subscribe(() => {
-        this.loadData();
-      });
-    } else {
-      console.error('Skill ID is undefined');
-    }
-  }
-
-  editEducation(education: Education): void {
-    // Logic for editing an education
-  }
-
-  deleteEducation(education: Education): void {
-    if (education._id) {
-      this.educationService.deleteEducation(education._id).subscribe(() => {
-        this.loadData();
-      });
-    } else {
-      console.error('Education ID is undefined');
-    }
-  }
 }

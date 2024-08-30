@@ -8,7 +8,7 @@ import { User } from './User';
 
 export interface CV {
   _id?: string;
-  user?: User; 
+  user?: string; 
   experiences: Experience[];
   projects: projet[];
   skills: Skill[];

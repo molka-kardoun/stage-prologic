@@ -1,101 +1,90 @@
+/* Styles communs pour les sections CV */
 .cv-container {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile-section {
-  text-align: center;
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.profile-section h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.profile-section p {
-  margin: 5px 0 0;
-  font-size: 16px;
-  color: #666666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
 .cv-section {
   margin-bottom: 20px;
-  position: relative;
 }
 
-.cv-section h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 10px;
+/* Styles pour les items de l'expérience */
+.experience-item,
+.project-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Styles pour l'en-tête de l'expérience et du projet */
+.experience-header,
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Actions pour l'expérience et le projet */
+.experience-actions button,
+.project-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Dates pour l'expérience et le projet */
+.experience-dates,
+.project-dates {
+  color: #888;
+  font-size: 14px;
+}
+
+/* Description pour l'expérience et le projet */
+.experience-description,
+.project-description {
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Styles pour l'en-tête de chaque section */
+.cv-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: 10px;
+.cv-header h3 {
+  margin: 0;
 }
 
-.edit-delete-icons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-.edit-delete-icons .icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-/* Additional styling for forms */
-form {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-form input,
-form textarea,
-form select {
-  width: calc(100% - 20px);
-  padding: 8px 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-form button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
+/* Bouton pour ajouter une expérience */
+.add-experience-btn,
+.add-project-btn {
+  background-color: #ec580e; /* Couleur pour les boutons */
+  color: white; /* Couleur de l'icône */
   border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  width: 50px; /* Taille du bouton */
+  height: 50px;
+  border-radius: 50%; /* Rendre le bouton circulaire */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-form button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.add-experience-btn:hover,
+.add-project-btn:hover {
+  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Accentuer l'ombre au survol */
+}
+
+.add-experience-btn mat-icon,
+.add-project-btn mat-icon {
+  font-size: 24px; /* Taille de l'icône */
 }

@@ -17,20 +17,20 @@ export class CertificationService {
   }
 
 
-  getCertifications(): Observable<Certification[]> {
-    return this.http.get<Certification[]>(`${this.apiUrl}/getall`);
+  getCertificationsByUserId(userId: string): Observable<Certification[]> {
+    return this.http.get<Certification[]>(`${this.apiUrl}/user/${userId}`);
   }
 
   getCertificationById(id: string): Observable<Certification> {
-    return this.http.get<Certification>(`${this.apiUrl}/getbyid/${id}`);
+    return this.http.get<Certification>(`${this.apiUrl}/${id}`);
   }
 
   
-  updateCertificationInCv(cvId: string, certification: Certification): Observable<Certification> {
-    return this.http.put<Certification>(`${this.apiUrl}/update/${cvId}`, certification);
+  updateCertification(id: string, certification: Certification): Observable<Certification> {
+    return this.http.put<Certification>(`${this.apiUrl}/${id}`, certification);
   }
 
   deleteCertification(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/del/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

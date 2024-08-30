@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from '../../../../Core/Services/language.service';
-import { Router } from '@angular/router';
-import { Language } from '../../../../Core/models/Language';
+import { Language } from '../../../../Core/models/Language'; // Adjust import path if necessary
 
 @Component({
   selector: 'app-language-form',
@@ -10,35 +9,40 @@ import { Language } from '../../../../Core/models/Language';
   styleUrls: ['./language-form.component.css']
 })
 export class LanguageFormComponent implements OnInit {
+  @Input() editingItem: Language | null = null;
+  @Output() formSubmit = new EventEmitter<Language>();
+  @Output() cancel = new EventEmitter<void>();
+
   languageForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private languageService: LanguageService,
-    private router: Router
+    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm(): void {
     this.languageForm = this.fb.group({
-      name: ['', Validators.required],
-      level: [0, [Validators.required, Validators.min(0), Validators.max(10)]],
-      certification: ['', Validators.required],
-      cv: ['', Validators.required]
+      name: [this.editingItem?.name || '', Validators.required],
+      level: [this.editingItem?.level || '', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.languageForm.valid) {
-      const newLanguage: Language = this.languageForm.value;
-      this.languageService.addLanguage(newLanguage).subscribe({
-        next: (response) => {
-          console.log('Language added successfully', response);
-          this.router.navigate(['/languages']);  // Rediriger vers la liste des langues
-        },
-        error: (err) => {
-          console.error('Error adding language', err);
-        }
-      });
+      const languageData: Language = {
+        ...this.languageForm.value,
+        _id: this.editingItem ? this.editingItem._id : undefined  // Keep ID if editing
+      };
+
+      this.formSubmit.emit(languageData);
     }
+  }
+
+  onCancel(): void {
+    this.cancel.emit();
   }
 }

@@ -26,8 +26,9 @@ import { ProjectFormComponent } from './Backoffice/backall/contentback/project-f
 import { ExperienceFormComponent } from './Backoffice/backall/contentback/experience-form/experience-form.component';
 import { LanguageFormComponent } from './Backoffice/backall/contentback/language-form/language-form.component';
 import { CvComponent } from './Backoffice/backall/contentback/cv/cv.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -64,7 +65,10 @@ import { CvComponent } from './Backoffice/backall/contentback/cv/cv.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AngularEditorModule
+    AngularEditorModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,20 @@
-<img [src]="'http://127.0.0.1:3000/getimage/' + user.image" alt="User Image">
-<h1>{{user.fullName}}</h1>
-<h1>{{user.dateOfBirth}}</h1>
-<h1>{{user.address}}</h1>
-<h1>{{user.department}}</h1>
-<button class="btn btn-dark" routerLink="/home/card">create my cv </button>
+<div *ngIf="user">
+  <div class="profile-header">
+    <!-- User Image -->
+    <img 
+      [src]="'http://127.0.0.1:3000/getimage/' + user.image" 
+      alt="User Image" 
+      class="user-image"
+    >
+    
+    <!-- User Info -->
+    <div class="user-info">
+      <h1>{{ user.fullName }}</h1>
+      <p>Date de naissance : {{ user.dateOfBirth | date }}</p>
+      <p>Adresse : {{ user.address }}</p>
+      <p>Département : {{ user.department }}</p>
+    </div>
+  </div>
+
+  
+</div>

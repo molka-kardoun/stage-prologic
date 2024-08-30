@@ -1,90 +1,58 @@
 <div class="cv-container">
-  <div class="profile-section">
-    <h2>Lina Elarabi</h2>
-    <p>Étudiant(e) à SMU - South Mediterranean University (MSB- MedTech-LCI)</p>
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Experience</h3>
+      <button mat-icon-button color="primary" class="add-experience-btn" (click)="openExperienceDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    
+    
+    <div *ngIf="experiences.length === 0" class="no-experience">
+      No experiences available. Please add one.
+    </div>
+
+    <div *ngFor="let experience of experiences" class="experience-item">
+      <div class="experience-header">
+        <h4>{{experience.job}} at {{experience.company}}</h4>
+        <div class="experience-actions">
+          <button (click)="editExperience(experience)" class="edit-btn">✏️</button>
+          <button (click)="deleteExperience(experience._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+      <div class="experience-dates">
+        {{experience.start_date | date: 'MMM yyyy'}} - {{experience.end_date | date: 'MMM yyyy'}}
+      </div>
+      <p class="experience-description">{{experience.description}}</p>
+    </div>
+    
+    <div class="cv-section">
+      <div class="cv-header">
+        <h3>Projects</h3>
+        <button mat-icon-button color="primary" class="add-project-btn" (click)="openProjectDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+  
+      <div *ngIf="projects.length === 0" class="no-project">
+        No projects available. Please add one.
+      </div>
+  
+      <div *ngFor="let project of projects" class="project-item">
+        <div class="project-header">
+          <h4>{{project.title}} at {{project.organisation}}</h4>
+          <div class="project-actions">
+            <button (click)="editProject(project)" class="edit-btn">✏️</button>
+            <button (click)="deleteProject(project._id || '')" class="delete-btn">🗑️</button>
+          </div>
+        </div>
+        <div class="project-dates">
+          {{project.date | date: 'MMM yyyy'}}
+        </div>
+        <p class="project-description">{{project.description}}</p>
+      </div>
+    </div>
+    
+  
   </div>
 
-  <div class="cv-section">
-    <h3>Experience
-      <i class='bx bx-plus-circle icon' (click)="toggleAddExperience()"></i>
-    </h3>
-    <div *ngIf="showAddExperience">
-      <app-experience-form></app-experience-form>
-    </div>
-    <div *ngFor="let experience of experiences">
-      <div>{{experience.job}} at {{experience.company}} from {{experience.start_date}} to {{experience.end_date}}</div>
-      <i class='bx bx-edit icon' (click)="editExperience(experience)"></i>
-      <i class='bx bx-trash icon' (click)="deleteExperience(experience)"></i>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <h3>Languages
-      <i class='bx bx-plus-circle icon' (click)="toggleAddLanguage()"></i>
-    </h3>
-    <div *ngIf="showAddLanguage">
-      <app-language-form></app-language-form>
-    </div>
-    <div *ngFor="let language of languages">
-      <div>{{language.name}} - Level: {{language.level}}</div>
-      <i class='bx bx-edit icon' (click)="editLanguage(language)"></i>
-      <i class='bx bx-trash icon' (click)="deleteLanguage(language)"></i>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <h3>Certifications
-      <i class='bx bx-plus-circle icon' (click)="toggleAddCertification()"></i>
-    </h3>
-    <div *ngIf="showAddCertification">
-      <app-certification-form></app-certification-form>
-    </div>
-    <div *ngFor="let certification of certifications">
-      <div>{{certification.domain}} - Date: {{certification.date}}</div>
-      <i class='bx bx-edit icon' (click)="editCertification(certification)"></i>
-      <i class='bx bx-trash icon' (click)="deleteCertification(certification)"></i>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <h3>Projects
-      <i class='bx bx-plus-circle icon' (click)="toggleAddProject()"></i>
-    </h3>
-    <div *ngIf="showAddProject">
-      <app-project-form></app-project-form>
-    </div>
-    <div *ngFor="let project of projects">
-      <div>{{project.title}} at {{project.organisation}} - {{project.description}}</div>
-      <i class='bx bx-edit icon' (click)="editProject(project)"></i>
-      <i class='bx bx-trash icon' (click)="deleteProject(project)"></i>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <h3>Skills
-      <i class='bx bx-plus-circle icon' (click)="toggleAddSkill()"></i>
-    </h3>
-    <div *ngIf="showAddSkill">
-      <app-skill-form></app-skill-form>
-    </div>
-    <div *ngFor="let skill of skills">
-      <div>{{skill.name}} - Level: {{skill.level}}</div>
-      <i class='bx bx-edit icon' (click)="editSkill(skill)"></i>
-      <i class='bx bx-trash icon' (click)="deleteSkill(skill)"></i>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <h3>Education
-      <i class='bx bx-plus-circle icon' (click)="toggleAddEducation()"></i>
-    </h3>
-    <div *ngIf="showAddEducation">
-      <app-education-form></app-education-form>
-    </div>
-    <div *ngFor="let education of education">
-      <div>{{education.etablissement}} - {{education.domaine}} from {{education.start_date}} to {{education.end_date}}</div>
-      <i class='bx bx-edit icon' (click)="editEducation(education)"></i>
-      <i class='bx bx-trash icon' (click)="deleteEducation(education)"></i>
-    </div>
-  </div>
-</div>
