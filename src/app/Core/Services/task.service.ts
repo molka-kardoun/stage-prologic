@@ -27,4 +27,18 @@ export class TaskService {
   approveTask(taskId: string): Observable<any> {
     return this.http.put(`${this.apiUrl}/approve/${taskId}`, {});
   }
+
+  uploadReport(stagiaireId: string, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('report', file, file.name);
+
+    return this.http.post(`${this.apiUrl}/upload/${stagiaireId}`, formData);
+  }
+
+  validateIntern(encadrantId: string, stagiaireId: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/validate/${encadrantId}/${stagiaireId}`, {});
+  }
+
+
+
 }

@@ -40,6 +40,8 @@ import { SubmitQuizComponent } from './Backoffice/backall/contentback/submit-qui
 import { TaskManagementComponent } from './Backoffice/backall/contentback/task-management/task-management.component';
 import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
 import { ProgressModalComponent } from './Backoffice/backall/contentback/progress-modal/progress-modal.component';
+import { UploadReportComponent } from './Backoffice/backall/contentback/upload-report/upload-report.component';
+import { ValidateInternComponent } from './Backoffice/backall/contentback/validate-intern/validate-intern.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +76,8 @@ import { ProgressModalComponent } from './Backoffice/backall/contentback/progres
     TaskManagementComponent,
     MyTasksComponent,
     ProgressModalComponent,
+    UploadReportComponent,
+    ValidateInternComponent,
 
 
   ],

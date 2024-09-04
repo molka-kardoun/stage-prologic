@@ -10,11 +10,25 @@ import { InternshipOfferService } from 'src/app/Core/Services/internship-offer.s
 })
 export class ListInternshipOffersComponent implements OnInit {
   offers: InternshipOffer[] = [];
+  id:any;
+  user:any;
+  isIntern: boolean = false;
+  constructor(private offerService: InternshipOfferService ,public auth:AuthService ) {}
 
-  constructor(private offerService: InternshipOfferService ) {}
 
   ngOnInit() {
     this.offerService.getAllInternshipOffers().subscribe(offers => {
       this.offers = offers;
     });
+
+    this.id=this.auth.getUserdatafromtoken()._id;
+    this.auth.getuserbyid(this.id).subscribe(res=>{
+      this.user=res;
+
+      const userData = this.auth.getUserdatafromtoken();
+      if (userData && userData.role === 'STAGIAIRE') {
+        this.isIntern = true;
+      }
+
+  });
   }}

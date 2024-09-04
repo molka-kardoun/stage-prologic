@@ -28,6 +28,8 @@ import { EncadrantDashboardComponent } from './Backoffice/backall/contentback/en
 import { ListcandidatesComponent } from './Backoffice/backall/contentback/listcandidates/listcandidates.component';
 import { TaskManagementComponent } from './Backoffice/backall/contentback/task-management/task-management.component';
 import { MyTasksComponent } from './Backoffice/backall/contentback/my-tasks/my-tasks.component';
+import { UploadReportComponent } from './Backoffice/backall/contentback/upload-report/upload-report.component';
+import { ValidateInternComponent } from './Backoffice/backall/contentback/validate-intern/validate-intern.component';
 const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: '', component: LoginComponent},
@@ -45,7 +47,7 @@ const routes: Routes = [
 
       { path: 'create-offer', component: InternshipOfferComponent },
       { path: 'assign-quiz-offer', component: AssignQuizToOfferComponent },
-      { path: 'apply-internship/:id', component: SubmitQuizComponent },
+      { path: 'apply-internship/:id',  canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.STAGIAIRE] },component: SubmitQuizComponent },
       { path: 'internship-offers', component: ListInternshipOffersComponent },
       {  path: 'update-profile/:id',  component: UpdateProfileComponent },
       {  path: 'offerdetails',  component:  DetailedInternshipOffersComponent },
@@ -56,7 +58,8 @@ const routes: Routes = [
       {path: 'list-candidates',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ASSISTANT] },component:ListcandidatesComponent},
       {  path: 'my-tasks',  component:  MyTasksComponent },
       {  path: 'task-management',  component:  TaskManagementComponent },
-
+      { path: 'upload-report', component: UploadReportComponent },
+      { path: 'validate-intern', component: ValidateInternComponent },
 
       ]}
 

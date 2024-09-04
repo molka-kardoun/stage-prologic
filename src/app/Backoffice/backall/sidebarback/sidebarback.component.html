@@ -1,6 +1,6 @@
 <nav id="sidebar">
   <div class="sidebar_blog_1">
-   
+
     <div class="sidebar_user_info">
       <div class="icon_setting"></div>
       <div class="user_profle_side">
@@ -59,6 +59,13 @@
           <li *ngIf="auth.loggedIn()">
             <a [routerLink]="['/home/my-tasks']">><span>My tasks</span></a>
           </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/upload-report']">><span>Upload report</span></a>
+          </li>
+          <li *ngIf="auth.loggedIn()">
+            <a [routerLink]="['/home/validate-intern']">><span>validate my interns</span></a>
+          </li>
+
 
         </ul>
       </li>
