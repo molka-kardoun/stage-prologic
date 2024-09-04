@@ -27,6 +27,7 @@ export class SignupComponent {
     department: '',
     gender: '',
     isEnabled: true,
+    forgetPassword: '',
 
     creationDate: new Date(),
     status: InternStatus.DECLINED,

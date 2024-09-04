@@ -26,6 +26,7 @@ export class UpdateProfileComponent implements OnInit {
     department: '',
     gender: '',
     isEnabled: true,
+    forgetPassword: '',
     creationDate: new Date(),
     status: InternStatus.DECLINED
   };
