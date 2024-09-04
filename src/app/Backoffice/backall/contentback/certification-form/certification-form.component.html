@@ -1,0 +1,22 @@
+<form [formGroup]="certificationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="domain">Domain:</label>
+    <input id="domain" formControlName="domain" />
+    <div *ngIf="certificationForm.get('domain')?.invalid && certificationForm.get('domain')?.touched">
+      Domain is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input id="date" type="date" formControlName="date" />
+    <div *ngIf="certificationForm.get('date')?.invalid && certificationForm.get('date')?.touched">
+      Date is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="certificationForm.invalid">
+    {{ data.certification ? 'Update Certification' : 'Add Certification' }}
+  </button>
+  <button type="button" mat-button (click)="onCancel()">Cancel</button>
+</form>

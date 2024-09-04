@@ -1,8 +1,12 @@
+import { ForgetPassword } from './ForgetPassword';
+import { Lab } from './Lab';
+import { InternshipOffer } from './InternshipOffer';
+import { CV } from './CV';
 import { InternStatus } from "./InternStatus";
 import { Roles } from "./Roles";
 
 export interface User {
-  _id: string;
+  _id?: string;
   fullName: string;
   phone: string;
   email: string;
@@ -15,11 +19,10 @@ export interface User {
   department: string;
   gender: string;
   isEnabled: boolean;
-  cv?: string; // assuming this is an ID reference to CV
+  cv?: CV;
   creationDate: Date;
   status: InternStatus;
-
+  forgetPassword: any;
   lab?: string[] ;
-  internshipOffer?: string; // assuming this is an ID reference to InternshipOffer
+  internshipOffer?: string;// assuming this is an ID reference to InternshipOffer
 }
-

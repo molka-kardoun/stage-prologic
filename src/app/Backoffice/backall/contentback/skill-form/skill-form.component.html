@@ -1,0 +1,22 @@
+<form [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Skill Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="skillForm.get('name')?.invalid && skillForm.get('name')?.touched">
+      Skill name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="level">Level (1-5):</label>
+    <input id="level" type="number" formControlName="level" min="1" max="5" />
+    <div *ngIf="skillForm.get('level')?.invalid && skillForm.get('level')?.touched">
+      Level must be between 1 and 5.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="skillForm.invalid">
+    {{ data.skill ? 'Update Skill' : 'Add Skill' }}
+  </button>
+  <button type="button" mat-button (click)="onCancel()">Cancel</button>
+</form>

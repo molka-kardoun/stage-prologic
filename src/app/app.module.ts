@@ -40,6 +40,17 @@ import { SubmitQuizComponent } from './Backoffice/backall/contentback/submit-qui
 import { TaskManagementComponent } from './Backoffice/backall/contentback/task-management/task-management.component';
 import { UpdateProfileComponent } from './Backoffice/backall/contentback/update-profile/update-profile.component';
 import { ProgressModalComponent } from './Backoffice/backall/contentback/progress-modal/progress-modal.component';
+
+
+import { CertificationFormComponent } from './Backoffice/backall/contentback/certification-form/certification-form.component';
+import { EducationFormComponent } from './Backoffice/backall/contentback/education-form/education-form.component';
+import { SkillFormComponent } from './Backoffice/backall/contentback/skill-form/skill-form.component';
+import { ProjectFormComponent } from './Backoffice/backall/contentback/project-form/project-form.component';
+import { ExperienceFormComponent } from './Backoffice/backall/contentback/experience-form/experience-form.component';
+import { LanguageFormComponent } from './Backoffice/backall/contentback/language-form/language-form.component';
+import { CvComponent } from './Backoffice/backall/contentback/cv/cv.component';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,9 +86,17 @@ import { ProgressModalComponent } from './Backoffice/backall/contentback/progres
     MyTasksComponent,
     ProgressModalComponent,
 
+    CertificationFormComponent,
+    EducationFormComponent,
+    SkillFormComponent,
+    ProjectFormComponent,
+    ExperienceFormComponent,
+    LanguageFormComponent,
+    CvComponent,
 
   ],
   imports: [
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

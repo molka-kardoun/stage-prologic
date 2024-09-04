@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { Lab } from 'src/app/Core/models/Lab';
-import { LabService } from 'src/app/Core/Services/lab.service';
+import { Lab } from '../../../../Core/models/Lab';
+import { LabService } from '../../../../Core/Services/lab.service';
 
 @Component({
   selector: 'app-create-lab',

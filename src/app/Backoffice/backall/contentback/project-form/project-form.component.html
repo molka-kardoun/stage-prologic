@@ -1,0 +1,38 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="organisation">Organisation:</label>
+    <input id="organisation" formControlName="organisation" />
+    <div *ngIf="projectForm.get('organisation')?.invalid && projectForm.get('organisation')?.touched">
+      Organisation is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" />
+    <div *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched">
+      Title is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="date">Date:</label>
+    <input id="date" type="date" formControlName="date" />
+    <div *ngIf="projectForm.get('date')?.invalid && projectForm.get('date')?.touched">
+      Date is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <div *ngIf="projectForm.get('description')?.invalid && projectForm.get('description')?.touched">
+      Description is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="projectForm.invalid">
+    {{ data.project ? 'Update Project' : 'Add Project' }}
+  </button>
+  <button type="button" mat-button (click)="onCancel()">Cancel</button>
+</form>

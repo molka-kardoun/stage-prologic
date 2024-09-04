@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CV } from '../models/CV';
+import { User } from '../models/User';
 
 
 @Injectable({
@@ -29,6 +32,18 @@ export class AuthService {
     }
 
 }
+getCVByUserId(userId: string): Observable<CV> {
+  return this.http.get<CV>(`${this.url}/cv/user/${userId}`);
+}
+
+
+
+
+updateUserCV(userId: string, cvId: string): Observable<User> {
+  return this.http.put<User>(`${this.url}/user/${userId}/updateCV`, { cvId });
+}
+
+
 getUserdatafromtoken(){
   let token =localStorage.getItem('token');
   if(token){
@@ -41,9 +56,6 @@ getUserdatafromtoken(){
 getuserbyid(id:any){
   return this.http.get(`${this.url}/getbyid/${id}`);
 }
-
-
-
 getRole(): string {
   if (!this.role) {
     // Fetch role from token or server if not already set

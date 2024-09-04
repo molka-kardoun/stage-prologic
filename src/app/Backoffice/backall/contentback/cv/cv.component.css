@@ -1,0 +1,114 @@
+.cv-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.cv-section {
+  margin-bottom: 20px;
+}
+
+.experience-item,
+.project-item,
+.certification-item,
+.education-item,
+.language-item,
+.skill-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.experience-header,
+.project-header,
+.certification-header,
+.education-header,
+.language-header,
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience-actions button,
+.project-actions button,
+.certification-actions button,
+.education-actions button,
+.language-actions button,
+.skill-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.experience-dates,
+.project-dates,
+.certification-dates,
+.education-dates,
+.language-dates,
+.skill-dates {
+  color: #888;
+  font-size: 14px;
+}
+
+.experience-description,
+.project-description,
+.certification-description,
+.education-description,
+.language-description,
+.skill-description {
+  margin-top: 10px;
+  color: #555;
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cv-header h3 {
+  margin: 0;
+}
+
+.add-experience-btn,
+.add-project-btn,
+.add-certification-btn,
+.add-education-btn,
+.add-language-btn,
+.add-skill-btn {
+  background-color: #ec580e;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-experience-btn:hover,
+.add-project-btn:hover,
+.add-certification-btn:hover,
+.add-education-btn:hover,
+.add-language-btn:hover,
+.add-skill-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-experience-btn mat-icon,
+.add-project-btn mat-icon,
+.add-certification-btn mat-icon,
+.add-education-btn mat-icon,
+.add-language-btn mat-icon,
+.add-skill-btn mat-icon {
+  font-size: 24px;
+}

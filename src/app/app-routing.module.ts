@@ -3,6 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BackallComponent } from './Backoffice/backall/backall.component';
 
+import { EducationFormComponent } from './Backoffice/backall/contentback/education-form/education-form.component';
+import { SkillFormComponent } from './Backoffice/backall/contentback/skill-form/skill-form.component';
+import { ProjectFormComponent } from './Backoffice/backall/contentback/project-form/project-form.component';
+import { CertificationFormComponent  } from './Backoffice/backall/contentback/certification-form/certification-form.component';
+import { ExperienceFormComponent } from './Backoffice/backall/contentback/experience-form/experience-form.component';
+import {LanguageFormComponent } from './Backoffice/backall/contentback/language-form/language-form.component';
+import {CvComponent } from './Backoffice/backall/contentback/cv/cv.component';
+
 import { CardbComponent } from './Backoffice/backall/contentback/cardb/cardb.component';
 import { CreateLabComponent } from './Backoffice/backall/contentback/create-lab/create-lab.component';
 import { LoginComponent } from './Backoffice/backall/contentback/login/login.component';
@@ -38,11 +46,16 @@ const routes: Routes = [
 
     {path: "home", component: BackallComponent , children: [
       {path: 'card', component: CardbComponent},
-
+      { path: 'cv', component: CvComponent },
+      { path: 'edu', component: EducationFormComponent },
+      { path: 'skill', component: SkillFormComponent },
+      { path: 'projet', component: ProjectFormComponent },
+      { path: 'certif', component: CertificationFormComponent },
+      { path: 'experience', component: ExperienceFormComponent },
+      { path: 'lang', component: LanguageFormComponent },
       {path: 'addlab',canActivate:[AuthGuard,RoleGuard] ,data: { expectedRoles: [Roles.ADMIN] },component: CreateLabComponent},
       {path: 'profile/:id', component: ProfileComponent},
       {path: 'createquiz',component: CreateQuizComponent},
-
       { path: 'create-offer', component: InternshipOfferComponent },
       { path: 'assign-quiz-offer', component: AssignQuizToOfferComponent },
       { path: 'apply-internship/:id', component: SubmitQuizComponent },

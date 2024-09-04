@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { InternStatus } from 'src/app/Core/models/InternStatus';
 import { Roles } from 'src/app/Core/models/Roles';
 import { User } from 'src/app/Core/models/User';
 import { AuthService } from 'src/app/Core/Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -29,8 +29,7 @@ export class SignupComponent {
     isEnabled: true,
 
     creationDate: new Date(),
-    status: InternStatus.WAITING
-
+    status: InternStatus.DECLINED,
 
   };
 
