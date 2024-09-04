@@ -29,6 +29,7 @@ export class CertificationFormComponent implements OnInit {
     this.userId = this.authService.getUserdatafromtoken()._id;
     this.initializeForm();
 
+    // Si une certification est passée en paramètre, pré-remplir le formulaire
     if (this.data.certification) {
       this.certificationForm.patchValue(this.data.certification);
     }
@@ -50,6 +51,7 @@ export class CertificationFormComponent implements OnInit {
       };
 
       if (this.data.certification) {
+        // Mise à jour d'une certification existante
         this.certificationService.updateCertification(this.data.certification._id!, formData).subscribe({
           next: (updatedCertification) => {
             this.dialogRef.close(updatedCertification);
@@ -59,6 +61,7 @@ export class CertificationFormComponent implements OnInit {
           }
         });
       } else {
+        // Ajout d'une nouvelle certification
         this.certificationService.addCertification(formData).subscribe({
           next: (newCertification) => {
             this.dialogRef.close(newCertification);

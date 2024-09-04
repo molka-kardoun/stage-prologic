@@ -1,4 +1,3 @@
-/* Styles communs pour les sections CV */
 .cv-container {
   padding: 20px;
   background-color: #f9f9f9;
@@ -9,9 +8,12 @@
   margin-bottom: 20px;
 }
 
-/* Styles pour les items de l'expérience */
 .experience-item,
-.project-item {
+.project-item,
+.certification-item,
+.education-item,
+.language-item,
+.skill-item {
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 15px;
@@ -19,38 +21,49 @@
   margin-bottom: 15px;
 }
 
-/* Styles pour l'en-tête de l'expérience et du projet */
 .experience-header,
-.project-header {
+.project-header,
+.certification-header,
+.education-header,
+.language-header,
+.skill-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Actions pour l'expérience et le projet */
 .experience-actions button,
-.project-actions button {
+.project-actions button,
+.certification-actions button,
+.education-actions button,
+.language-actions button,
+.skill-actions button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 16px;
 }
 
-/* Dates pour l'expérience et le projet */
 .experience-dates,
-.project-dates {
+.project-dates,
+.certification-dates,
+.education-dates,
+.language-dates,
+.skill-dates {
   color: #888;
   font-size: 14px;
 }
 
-/* Description pour l'expérience et le projet */
 .experience-description,
-.project-description {
+.project-description,
+.certification-description,
+.education-description,
+.language-description,
+.skill-description {
   margin-top: 10px;
   color: #555;
 }
 
-/* Styles pour l'en-tête de chaque section */
 .cv-header {
   display: flex;
   align-items: center;
@@ -61,30 +74,41 @@
   margin: 0;
 }
 
-/* Bouton pour ajouter une expérience */
 .add-experience-btn,
-.add-project-btn {
-  background-color: #ec580e; /* Couleur pour les boutons */
-  color: white; /* Couleur de l'icône */
+.add-project-btn,
+.add-certification-btn,
+.add-education-btn,
+.add-language-btn,
+.add-skill-btn {
+  background-color: #ec580e;
+  color: white;
   border: none;
-  width: 50px; /* Taille du bouton */
+  width: 50px;
   height: 50px;
-  border-radius: 50%; /* Rendre le bouton circulaire */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour un effet de profondeur */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .add-experience-btn:hover,
-.add-project-btn:hover {
-  transform: scale(1.1); /* Agrandir légèrement le bouton au survol */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Accentuer l'ombre au survol */
+.add-project-btn:hover,
+.add-certification-btn:hover,
+.add-education-btn:hover,
+.add-language-btn:hover,
+.add-skill-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .add-experience-btn mat-icon,
-.add-project-btn mat-icon {
-  font-size: 24px; /* Taille de l'icône */
+.add-project-btn mat-icon,
+.add-certification-btn mat-icon,
+.add-education-btn mat-icon,
+.add-language-btn mat-icon,
+.add-skill-btn mat-icon {
+  font-size: 24px;
 }

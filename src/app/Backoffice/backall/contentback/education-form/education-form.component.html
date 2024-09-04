@@ -1,26 +1,38 @@
-<div class="container">
-    <h2>Add Education</h2>
-    <form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="etablissement">Etablissement:</label>
-        <input type="text" id="etablissement" formControlName="etablissement" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="domaine">Domaine:</label>
-        <input type="text" id="domaine" formControlName="domaine" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" formControlName="start_date" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" formControlName="end_date" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="cv">CV:</label>
-        <input type="text" id="cv" formControlName="cv" class="form-control">
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="educationForm.invalid">Add Education</button>
-    </form>
+<form [formGroup]="educationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="etablissement">Etablissement:</label>
+    <input id="etablissement" formControlName="etablissement" />
+    <div *ngIf="educationForm.get('etablissement')?.invalid && educationForm.get('etablissement')?.touched">
+      Etablissement is required.
+    </div>
   </div>
+
+  <div>
+    <label for="domaine">Domaine:</label>
+    <input id="domaine" formControlName="domaine" />
+    <div *ngIf="educationForm.get('domaine')?.invalid && educationForm.get('domaine')?.touched">
+      Domaine is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="start_date">Start Date:</label>
+    <input id="start_date" type="date" formControlName="start_date" />
+    <div *ngIf="educationForm.get('start_date')?.invalid && educationForm.get('start_date')?.touched">
+      Start date is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="end_date">End Date:</label>
+    <input id="end_date" type="date" formControlName="end_date" />
+    <div *ngIf="educationForm.get('end_date')?.invalid && educationForm.get('end_date')?.touched">
+      End date is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="educationForm.invalid">
+    {{ data.education ? 'Update Education' : 'Add Education' }}
+  </button>
+  <button type="button" mat-button (click)="onCancel()">Cancel</button>
+</form>

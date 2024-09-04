@@ -3,20 +3,25 @@
     <label for="name">Language:</label>
     <input id="name" formControlName="name" />
     <div *ngIf="languageForm.get('name')?.invalid && languageForm.get('name')?.touched">
-      Language is required.
+      Language name is required.
     </div>
   </div>
 
   <div>
-    <label for="level">Level:</label>
-    <input id="level" formControlName="level" />
+    <label for="level">Proficiency Level:</label>
+    <input id="level" type="number" formControlName="level" />
     <div *ngIf="languageForm.get('level')?.invalid && languageForm.get('level')?.touched">
-      Level is required.
+      Proficiency Level is required.
     </div>
   </div>
 
+  <div>
+    <label for="certification">Certification:</label>
+    <input id="certification" formControlName="certification" />
+  </div>
+
   <button type="submit" [disabled]="languageForm.invalid">
-    {{ editingItem ? 'Update Language' : 'Add Language' }}
+    {{ data.language ? 'Update Language' : 'Add Language' }}
   </button>
-  <button type="button" (click)="onCancel()">Cancel</button>
+  <button type="button" mat-button (click)="onCancel()">Cancel</button>
 </form>

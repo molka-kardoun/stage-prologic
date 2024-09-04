@@ -8,27 +8,27 @@ import { Skill } from '../models/Skill';
 })
 export class SkillService {
 
-  private apiUrl = 'http://localhost:3000/skill'; // Correction du chemin pour correspondre au contrôleur
+  private apiUrl = 'http://localhost:3000/skill'; // Base API URL
 
   constructor(private http: HttpClient) { }
 
   addSkill(skill: Skill): Observable<Skill> {
-    return this.http.post<Skill>(`${this.apiUrl}/create`, skill); // Correspondance avec le contrôleur
+    return this.http.post<Skill>(`${this.apiUrl}/add`, skill); // Corresponds to POST /skill/add
   }
 
-  getSkills(): Observable<Skill[]> {
-    return this.http.get<Skill[]>(this.apiUrl); // Correspondance avec le contrôleur
+  getSkills(userId: string): Observable<Skill[]> {
+    return this.http.get<Skill[]>(`${this.apiUrl}/user/${userId}`); // Corresponds to GET /skill/user/:userId
   }
 
   getSkillById(id: string): Observable<Skill> {
-    return this.http.get<Skill>(`${this.apiUrl}/${id}`); // Correspondance avec le contrôleur
+    return this.http.get<Skill>(`${this.apiUrl}/${id}`); // Corresponds to GET /skill/:id
   }
 
   updateSkill(id: string, skill: Skill): Observable<Skill> {
-    return this.http.put<Skill>(`${this.apiUrl}/update/${id}`, skill); // Correspondance avec le contrôleur
+    return this.http.put<Skill>(`${this.apiUrl}/${id}`, skill); // Corresponds to PUT /skill/:id
   }
 
   deleteSkill(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`); // Correspondance avec le contrôleur
+    return this.http.delete<void>(`${this.apiUrl}/${id}`); // Corresponds to DELETE /skill/:id
   }
 }

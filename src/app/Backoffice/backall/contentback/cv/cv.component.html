@@ -1,12 +1,12 @@
 <div class="cv-container">
+  <!-- Experiences Section -->
   <div class="cv-section">
     <div class="cv-header">
-      <h3>Experience</h3>
+      <h3>Experiences</h3>
       <button mat-icon-button color="primary" class="add-experience-btn" (click)="openExperienceDialog()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
-    
     
     <div *ngIf="experiences.length === 0" class="no-experience">
       No experiences available. Please add one.
@@ -25,34 +25,136 @@
       </div>
       <p class="experience-description">{{experience.description}}</p>
     </div>
-    
-    <div class="cv-section">
-      <div class="cv-header">
-        <h3>Projects</h3>
-        <button mat-icon-button color="primary" class="add-project-btn" (click)="openProjectDialog()">
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-  
-      <div *ngIf="projects.length === 0" class="no-project">
-        No projects available. Please add one.
-      </div>
-  
-      <div *ngFor="let project of projects" class="project-item">
-        <div class="project-header">
-          <h4>{{project.title}} at {{project.organisation}}</h4>
-          <div class="project-actions">
-            <button (click)="editProject(project)" class="edit-btn">✏️</button>
-            <button (click)="deleteProject(project._id || '')" class="delete-btn">🗑️</button>
-          </div>
-        </div>
-        <div class="project-dates">
-          {{project.date | date: 'MMM yyyy'}}
-        </div>
-        <p class="project-description">{{project.description}}</p>
-      </div>
-    </div>
-    
-  
   </div>
 
+  <!-- Projects Section -->
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Projects</h3>
+      <button mat-icon-button color="primary" class="add-project-btn" (click)="openProjectDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  
+    <div *ngIf="projects.length === 0" class="no-project">
+      No projects available. Please add one.
+    </div>
+  
+    <div *ngFor="let project of projects" class="project-item">
+      <div class="project-header">
+        <h4>{{project.title}} at {{project.organisation}}</h4>
+        <div class="project-actions">
+          <button (click)="editProject(project)" class="edit-btn">✏️</button>
+          <button (click)="deleteProject(project._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+      <div class="project-dates">
+        {{project.date | date: 'MMM yyyy'}}
+      </div>
+      <p class="project-description">{{project.description}}</p>
+    </div>
+  </div>
+
+  <!-- Certifications Section -->
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Certifications</h3>
+      <button mat-icon-button color="primary" class="add-certification-btn" (click)="openCertificationDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    
+    <div *ngIf="certifications.length === 0" class="no-certification">
+      No certifications available. Please add one.
+    </div>
+
+    <div *ngFor="let certification of certifications" class="certification-item">
+      <div class="certification-header">
+        <h4>{{certification.domain}}</h4>
+        <div class="certification-actions">
+          <button (click)="editCertification(certification)" class="edit-btn">✏️</button>
+          <button (click)="deleteCertification(certification._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+      <div class="certification-dates">
+        {{certification.date | date: 'MMM yyyy'}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Educations Section -->
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Educations</h3>
+      <button mat-icon-button color="primary" class="add-education-btn" (click)="openEducationDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="educations.length === 0" class="no-education">
+      No educations available. Please add one.
+    </div>
+
+    <div *ngFor="let education of educations" class="education-item">
+      <div class="education-header">
+        <h4>{{education.domaine}} at {{education.etablissement}}</h4>
+        <div class="education-actions">
+          <button (click)="editEducation(education)" class="edit-btn">✏️</button>
+          <button (click)="deleteEducation(education._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+      <div class="education-dates">
+        {{education.start_date | date: 'MMM yyyy'}} - {{education.end_date | date: 'MMM yyyy'}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Languages Section -->
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Languages</h3>
+      <button mat-icon-button color="primary" class="add-language-btn" (click)="openLanguageDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="languages.length === 0" class="no-language">
+      No languages available. Please add one.
+    </div>
+
+    <div *ngFor="let language of languages" class="language-item">
+      <div class="language-header">
+        <h4>{{language.name}} - {{language.level}}</h4>
+        <div class="language-actions">
+          <button (click)="editLanguage(language)" class="edit-btn">✏️</button>
+          <button (click)="deleteLanguage(language._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="cv-section">
+    <div class="cv-header">
+      <h3>Skills</h3>
+      <button mat-icon-button color="primary" class="add-skill-btn" (click)="openSkillDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="skills.length === 0" class="no-skill">
+      No skills available. Please add one.
+    </div>
+
+    <div *ngFor="let skill of skills" class="skill-item">
+      <div class="skill-header">
+        <h4>{{skill.name}} - Level: {{skill.level}}</h4>
+        <div class="skill-actions">
+          <button (click)="editSkill(skill)" class="edit-btn">✏️</button>
+          <button (click)="deleteSkill(skill._id || '')" class="delete-btn">🗑️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
